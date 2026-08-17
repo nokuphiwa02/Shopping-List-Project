@@ -1,11 +1,11 @@
 import React from 'react'
-import  { Navbar } from './components/Navbar/Navbar'
+import { LoginForm } from './components/LoginForm/loginform'
 
 export const App = () => {
   return (
     <div className=''>
 
-      <Navbar/>
+      < LoginForm />
 
     </div>
   )
