@@ -1,18 +1,13 @@
-import React from "react";
+
 import styles from "./Navbar.module.css";
 import home from "../../assets/home icon.png";
 
 export const Navbar = () => {
   return (
     <div className={styles.navbarContent}>
-        <h1>Hi</h1>
       <nav>
-        <ul>
-        <li>
-          <h1>Login</h1>
-        </li>
-        </ul>
-        <img src={home} alt="home" />
+          <img src={home} alt="home"className={styles.image} />
+          <a href= "/" className={styles.tittle}>login</a>
       </nav>
     </div>
   );
