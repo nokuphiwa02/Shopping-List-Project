@@ -1,10 +1,9 @@
-import styles from './LoginForm.module.css'
+import styles from "./LoginForm.module.css";
 
 export const LoginForm = () => {
   return (
-<div className={styles.loginContainer}>
+    <div className={styles.loginContainer}>
       <div className="login-card">
-
         <h1>LOGIN</h1>
 
         <div className="form-group">
@@ -17,22 +16,12 @@ export const LoginForm = () => {
           <input type="password" />
         </div>
 
-        <button className="login-button">
-          Sign In
-        </button>
+        <button className="login-button">Sign In</button>
 
-        <button className="register-button">
-           Sign up
-        </button>
+        <button className="register-button">Sign up</button>
 
-        <p className="account-text">
-          create an Account?
-        </p>
-
+        <p className="account-text">create an Account?</p>
       </div>
     </div>
   );
 };
-
-
-
