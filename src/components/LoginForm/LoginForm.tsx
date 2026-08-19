@@ -2,12 +2,15 @@ import styles from "./LoginForm.module.css";
 import { useNavigate } from "react-router";
 
 export const LoginForm = () => {
+  const navigate = useNavigate();
+  const signUp = () => {
+    navigate("register");
+  };
 
- const navigate = useNavigate();
- const signUp = () => {
- navigate("register");
-};
-
+  const Login = useNavigate();
+  const signIn = () => {
+  Login("/homepage");
+  };
 
   return (
     <div className={styles.loginContainer}>
@@ -24,9 +27,13 @@ export const LoginForm = () => {
           <input type="password" className={styles.passwordInput} />
         </div>
 
-        <button className={styles.loginBtn}>Sign In</button>
+        <button className={styles.loginBtn} onClick={signIn}>
+          Sign In
+        </button>
 
-        <button className={styles.registerBtn} onClick={signUp}> Sign up</button>
+        <button className={styles.registerBtn} onClick={signUp}>
+          Sign up
+        </button>
 
         <p className={styles.account}>create an Account?</p>
       </div>
