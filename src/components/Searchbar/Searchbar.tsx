@@ -7,7 +7,8 @@ type SearchProps = {
 
  const SearchBar: React.FC<SearchProps> = ({ onSearch }) => {
   return (
-    
+    <div className={styles.searchContainer}>
+         <button className={styles.addBtn}>+Add Button</button>
     <div className={styles.searchBar}>
       <input
         type="text"
@@ -15,6 +16,8 @@ type SearchProps = {
         className={styles.searchInput}
         onChange={(e) => onSearch(e.target.value)}
       />
+    </div>
+    <button className={styles.sortBtn}>sort by</button>
     </div>
   );
 };
