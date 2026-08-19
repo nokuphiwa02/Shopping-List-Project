@@ -1,0 +1,64 @@
+.profileContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: #212121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileContent {
+  width: 70%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  border: solid grey;
+  border-radius: 20px;
+  align-items: center;
+}
+h1 {
+  color: white;
+}
+.profileIcon {
+  width: 80px;
+  height: 80px;
+}
+
+.first,
+.second
+ {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  text-align: start;
+}
+
+.Surname,
+.Name,
+.Email,
+.Password,
+.Contact {
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+}
+.delBtn {
+  width: 100px;
+  height: 30px;
+  background-color: rgb(180, 48, 76);
+  color: white;
+}
+
+.editBtn {
+  width: 100px;
+  height: 30px;
+  background-color: blue;
+}
+
+.third{
+   display: flex;
+  flex-direction: row;
+  gap: 20px;
+  text-align: start; 
+}
