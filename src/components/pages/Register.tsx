@@ -3,15 +3,8 @@ import styles from "./Register.module.css";
 import { useNavigate } from "react-router";
 // import type { User } from "../../redux/features/RegisterSlice";
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "../../../store";
-import {
-  updateName,
-  updateSurname,
-  updateEmailAddress,
-  updatePassword,
-  updateContact,
-  updateConfirmPassword,
-} from "../../redux/features/RegisterSlice";
+import type { AppDispatch, RootState } from "../../../store";
+import {updateName,updateSurname,updateEmailAddress,updatePassword,updateContact, updateConfirmPassword,RegisterThunk} from "../../redux/features/RegisterSlice";
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -19,23 +12,24 @@ export const Register = () => {
     navigate("/");
   };
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
-  const name = useSelector((state: RootState) => state.signUp.name);
-  const surname = useSelector((state: RootState) => state.signUp.surname);
-  const email = useSelector((state: RootState) => state.signUp.emailAddress);
-  const password = useSelector((state: RootState) => state.signUp.password);
-  const contact = useSelector((state: RootState) => state.signUp.contact);
-  const confirmPassword = useSelector(
-    (state: RootState) => state.signUp.confirmPassword,
+  const { name, surname, email, password, contact, confirmPassword } = useSelector(
+  (state: RootState) => state.signUp
+);
+
+
+ const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  const result = await dispatch(
+    RegisterThunk({ name, surname, email, password, contact, confirmPassword })
   );
-
-  const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-   
-    console.log(name, surname, email, password, contact, confirmPassword);
-    navigate('/')
-  };
+  
+  if (RegisterThunk.fulfilled.match(result)) {
+    alert('Registration successful');
+    navigate('/');
+  }
+};
 
   return (
     <form onSubmit={handleSave} className={styles.registerContainer}>

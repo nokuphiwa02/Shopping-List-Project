@@ -1,3 +1,14 @@
 {
-    "users": []
+  "users": [
+    {
+      "name": "happiness",
+      "surname": "Mhlongo",
+      "email": "happiness321@gmail.com",
+      "password": "12345",
+      "contact": "0636777546",
+      "confirmPassword": "12345",
+      "id": "mtdfyCSpngg"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

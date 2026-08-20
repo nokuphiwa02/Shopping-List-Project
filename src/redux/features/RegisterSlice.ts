@@ -7,7 +7,7 @@ export interface User{
     id?: number,
     name:string,
     surname: string,
-    emailAddress: string,
+    email: string,
     password: string,
     contact: string,
     confirmPassword: string
@@ -19,9 +19,10 @@ error: string | null
 }
 
 const initialState: UserState = {
-   name :'',
+    id: 0,
+    name :'',
     surname: '',
-    emailAddress: '',
+    email : '',
     password: '',
     contact:'',
     confirmPassword: '',
@@ -30,7 +31,7 @@ const initialState: UserState = {
 }
 
 export const RegisterThunk = createAsyncThunk("users/RegisterThunk",
-    async(newUser: Omit<UserState, "id"> ) => {
+    async(newUser: Omit<User, "id"> ) => {
         const response = await fetch("http://localhost:3000/users",
             {
                 method: "POST",
@@ -60,7 +61,7 @@ export const RegisterSlice = createSlice({
      state.surname= action.payload
      },
       updateEmailAddress: (state,action:PayloadAction<string>) => {
-     state.emailAddress= action.payload
+     state.email= action.payload
      },
       updatePassword: (state,action:PayloadAction<string>) => {
      state.password= action.payload
