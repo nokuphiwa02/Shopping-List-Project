@@ -21,7 +21,6 @@ export const Register = () => {
 
   const dispatch = useDispatch();
 
-  // const user =  useSelector((state: RootState) => state.signUp)
   const name = useSelector((state: RootState) => state.signUp.name);
   const surname = useSelector((state: RootState) => state.signUp.surname);
   const email = useSelector((state: RootState) => state.signUp.emailAddress);
@@ -33,15 +32,13 @@ export const Register = () => {
 
   const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // dispatch(({
-
-    // }))
+   
     console.log(name, surname, email, password, contact, confirmPassword);
     navigate('/')
   };
 
   return (
-    <form onClick={handleSave} className={styles.registerContainer}>
+    <form onSubmit={handleSave} className={styles.registerContainer}>
       <div className={styles.registerCard}>
         <h1 className={styles.tittle}>REGISTER</h1>
 
@@ -111,7 +108,7 @@ export const Register = () => {
           </div>
         </div>
 
-        <button className={styles.registerBtn} type="submit">
+        <button className={styles.registerBtn} type="submit" onClick={()=> handleSave}>
           Register
         </button>
         <button className={styles.back} onClick={back}>
