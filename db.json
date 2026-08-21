@@ -19,14 +19,15 @@
       "id": "hNMO1xoM9vw"
     },
     {
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": "",
-      "contact": "",
-      "confirmPassword": "",
-      "id": "wVvWKckmTkY"
+      "name": "Nokuphiwa",
+      "surname": "Shange",
+      "email": "shangenokuphiw683@gmail.com",
+      "password": "Phiwa@02",
+      "contact": "0639702439",
+      "confirmPassword": "Phiwa@02",
+      "id": "rkYGlMtTuhY"
     }
+   
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }

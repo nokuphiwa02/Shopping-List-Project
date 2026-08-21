@@ -1,44 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Register.module.css";
 import { useNavigate } from "react-router";
 // import type { User } from "../../redux/features/RegisterSlice";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../../store";
-import {updateName,updateSurname,updateEmailAddress,updatePassword,updateContact, updateConfirmPassword,RegisterThunk} from "../../redux/features/RegisterSlice";
+import {
+  updateName,
+  updateSurname,
+  updateEmailAddress,
+  updatePassword,
+  updateContact,
+  updateConfirmPassword,
+  RegisterThunk,
+} from "../../redux/features/RegisterSlice";
 
 export const Register = () => {
   const navigate = useNavigate();
+  const [error, setError] = useState<string>("");
   const back = () => {
     navigate("/");
   };
 
   const dispatch = useDispatch<AppDispatch>();
 
-  const { name, surname, email, password, contact, confirmPassword } = useSelector(
-  (state: RootState) => state.signUp
-);
+  const { name, surname, email, password, contact, confirmPassword } =
+    useSelector((state: RootState) => state.signUp);
 
+  const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError("");
 
- const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  const result = await dispatch(
-    RegisterThunk({ name, surname, email, password, contact, confirmPassword })
-  );
-  
-  if (RegisterThunk.fulfilled.match(result)) {
-    alert('Registration successful');
-    navigate('/');
-  }
-};
+    if (
+      !name.trim() ||
+      !surname.trim() ||
+      !email.trim() ||
+      !contact.trim() ||
+      !password.trim() ||
+      !confirmPassword.trim()
+    ) {
+      setError("All fields are required.");
+      return;
+    }
+
+    const result = await dispatch(
+      RegisterThunk({
+        name,
+        surname,
+        email,
+        password,
+        contact,
+        confirmPassword,
+      }),
+    );
+
+    if (RegisterThunk.fulfilled.match(result)) {
+      alert("Registration successful");
+      navigate("/");
+    }
+  };
 
   return (
     <form onSubmit={handleSave} className={styles.registerContainer}>
       <div className={styles.registerCard}>
         <h1 className={styles.tittle}>REGISTER</h1>
 
+        {error && <p role="alert">{error}</p>}
+
         <div className={styles.firstInfo}>
           <div className={styles.userName}>
-            <label>UserName:</label>
+            <label>Name:</label>
             <input
               type="userName"
               className={styles.username}
@@ -102,7 +132,11 @@ export const Register = () => {
           </div>
         </div>
 
-        <button className={styles.registerBtn} type="submit" onClick={()=> handleSave}>
+        <button
+          className={styles.registerBtn}
+          type="submit"
+          onClick={() => handleSave}
+        >
           Register
         </button>
         <button className={styles.back} onClick={back}>

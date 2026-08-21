@@ -8,7 +8,7 @@ export const App = () => {
   return (
     <Routes>
     <Route path='/' element =   {< LoginForm />}/>
-    <Route  path='register' element = { < Register />}/>
+    <Route  path='/register' element = { < Register />}/>
     <Route path='/homepage' element = { < Home />}/>
     <Route path='/profilepage' element = { < Profile />} />
     </Routes>

@@ -12,13 +12,13 @@ import type { AppDispatch } from "../../../store";
 export const LoginForm = () => {
   const navigate = useNavigate();
   const signUp = () => {
-    navigate("register");
+    navigate("/register");
   };
 
-  const Login = useNavigate();
-  const signIn = () => {
-    Login("/homepage");
-  };
+  // const Login = useNavigate();
+  // const signIn = () => {
+  //   Login("/homepage");
+  // };
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -30,20 +30,18 @@ export const LoginForm = () => {
       alert("Login successful");
       navigate("/homepage");
     }
-   if (LoginThunk.rejected.match(result)) {
-  
-  const payload = result.payload as { status?: number; message?: string } | undefined;
-  
-  const errorMessage = payload?.message || result.error?.message;
+    if (LoginThunk.rejected.match(result)) {
+      const payload = result.payload as
+        | { status?: number; message?: string }
+        | undefined;
+      const errorMessage = payload?.message || result.error?.message;
 
-  if (errorMessage === "user not found" || payload?.status === 404) {
-    alert("User not found. Please check your email or sign up.");
-    navigate("/registerPage");
-  } else {
-    alert("Login failed. Please try again.");
-  }
-}
-
+      if (errorMessage === "user not found" || payload?.status === 404) {
+        alert("user not found. Please check your email or sign up.");
+      } else {
+        alert("Login failed. Please try again.");
+      }
+    }
   };
 
   return (
@@ -69,7 +67,7 @@ export const LoginForm = () => {
           />
         </div>
 
-        <button className={styles.loginBtn} onClick={signIn}>
+        <button className={styles.loginBtn} onClick={() => handleSave}>
           Sign In
         </button>
 
