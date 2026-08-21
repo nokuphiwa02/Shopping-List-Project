@@ -8,6 +8,24 @@
       "contact": "0636777546",
       "confirmPassword": "12345",
       "id": "mtdfyCSpngg"
+    },
+    {
+      "name": "Phiwa",
+      "surname": "Shange",
+      "email": "Phiwa21@gmail.com",
+      "password": "56789",
+      "contact": "0785626970",
+      "confirmPassword": "56789",
+      "id": "hNMO1xoM9vw"
+    },
+    {
+      "name": "",
+      "surname": "",
+      "email": "",
+      "password": "",
+      "contact": "",
+      "confirmPassword": "",
+      "id": "wVvWKckmTkY"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
