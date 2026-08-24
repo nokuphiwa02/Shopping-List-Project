@@ -40,7 +40,7 @@ export const ListSlice = createSlice({
   name: "addCategory",
   initialState,
   reducers: {
-    updateCategory: (state, action: PayloadAction<string>) => {
+    addCategory: (state, action: PayloadAction<string>) => {
       state.category = action.payload;
     },
   },
@@ -60,6 +60,6 @@ export const ListSlice = createSlice({
   },
 });
 
-export const { updateCategory } = ListSlice.actions;
+export const { addCategory } = ListSlice.actions;
 
 export default ListSlice.reducer;

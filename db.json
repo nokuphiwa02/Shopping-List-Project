@@ -27,8 +27,44 @@
       "confirmPassword": "Phiwa@02",
       "id": "rkYGlMtTuhY"
     }
-   
   ],
-  "list" :[],
+  "list": [
+    {
+      "category": "Category",
+      "id": "arfuvOlZxug"
+    },
+    {
+      "category": "Category",
+      "id": "icwuhaXp9zA"
+    },
+    {
+      "category": "Category",
+      "id": "3FO4h7xsvYU"
+    },
+    {
+      "category": "Category",
+      "id": "9oTf1iyurXo"
+    },
+    {
+      "category": "Category",
+      "id": "vZuwinXFkOg"
+    },
+    {
+      "category": "Category",
+      "id": "NSw-iilOou0"
+    },
+    {
+      "category": "Category",
+      "id": "Kyj8Cvmc5Jk"
+    },
+    {
+      "category": "Category",
+      "id": "4Wo3Yy3niIw"
+    },
+    {
+      "category": "Category",
+      "id": "c1Ea57_2SCo"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
