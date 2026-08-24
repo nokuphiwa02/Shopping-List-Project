@@ -38,7 +38,7 @@ export const LoginThunk = createAsyncThunk(
         throw new Error("Failed to connect to the server");
       }
 
-      const users: User[] = await response.json();
+      const users: User[] = await response.json(); // ngyabonga
 
       const user = users.find(u => u.password === login.password);
 

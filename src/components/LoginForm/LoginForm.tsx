@@ -25,11 +25,13 @@ export const LoginForm = () => {
   const { email, password } = useSelector((state: RootState) => state.signIn);
   const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     const result = await dispatch(LoginThunk({ email, password }));
     if (LoginThunk.fulfilled.match(result)) {
       alert("Login successful");
       navigate("/homepage");
     }
+    
     if (LoginThunk.rejected.match(result)) {
       const payload = result.payload as
         | { status?: number; message?: string }

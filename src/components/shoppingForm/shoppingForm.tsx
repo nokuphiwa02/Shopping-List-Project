@@ -15,21 +15,23 @@ export const ShoppingForm = () => {
 
 
   return (
-    <form onSubmit={handleSave} className={styles.shoopingContainer}>
-      <div className={styles.shoopingContent}>
+    <form onSubmit={handleSave} className={styles.shopingContainer}>
+      <div className={styles.shopingContent}>
         <h2> Shopping List</h2>
 
-        <div className={styles.firtList}>
-          <input
+        <button className={styles.addBtn}>+Add Button</button>
+          <input className={styles.input}
             type="text"
             value={category}
             onChange={(e) => dispatch(updateCategory(e.target.value))}
             placeholder="submit"
           />
-          <button className={styles.viewBtn}> View</button>
-          <button className={styles.delBtn}>Delete</button>
-        </div>
+          <button className={styles.editBtn}>Edit</button>
+          {/* <button className={styles.delBtn}>Delete</button> */}
+         
       </div>
     </form>
   );
 };
+
+export default ShoppingForm;
