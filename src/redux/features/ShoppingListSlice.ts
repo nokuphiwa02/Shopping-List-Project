@@ -45,6 +45,21 @@ reducers: {
     updateCategory: (state,action: PayloadAction<string>) => {
         state.category= action.payload
     }
+},
+extraReducers: (builder) => {
+    builder.addCase(ListThunk.pending, (state) =>{
+        state.isLoading = true;
+        state.error =null
+    });
+    builder.addCase(ListThunk.fulfilled, (state) =>{
+       state.isLoading = false;
+    });
+
+    builder.addCase(ListThunk.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.error = action.payload as string
+    })
+
 }
 
 })
