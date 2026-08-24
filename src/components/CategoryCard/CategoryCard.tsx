@@ -1,18 +1,19 @@
-import styles from "./Card.module.css";
+import styles from './CategoryCard.module.css';
+import type{List}  from '../../redux/features/ShoppingListSlice'
 
 interface CategoryCardProps {
-  category: string;
+  category: List;
   onView: () => void;
   onDelete: () => void;
 }
 
-const CategoryCard = ({ category, onView, onDelete }: CategoryCardProps) => {
+export const CategoryCard = ({ category, onView, onDelete }: CategoryCardProps) => {
   return (
     <div className={styles.categoryCard}>
-      <h2>{category}</h2>
+      <h2>{category.category}</h2>
 
       <div className={styles.categoryBtn}>
-        <button onClick={onView} className="view-btn">
+        <button onClick={onView} className={styles.viewBtn}>
           View
         </button>
 
@@ -24,4 +25,4 @@ const CategoryCard = ({ category, onView, onDelete }: CategoryCardProps) => {
   );
 };
 
-export default CategoryCard;
+
