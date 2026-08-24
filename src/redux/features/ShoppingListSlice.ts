@@ -5,6 +5,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 export interface List{
 id?: number,
 category: string,
+
 }
 
 interface ListState extends List{
@@ -38,10 +39,10 @@ export const ListThunk = createAsyncThunk("List/ListThunk",
 )
 
 
-export const ListSlice = createSlice ({
-name: 'addCategory',
-initialState,
-reducers: {
+   export const ListSlice = createSlice ({
+   name: 'addCategory',
+   initialState,
+   reducers: {
     updateCategory: (state,action: PayloadAction<string>) => {
         state.category= action.payload
     }
