@@ -2,17 +2,18 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface List {
-  id?: number;
+  id?: string;
   category: string;
 }
 
 interface ListState extends List {
+  lists:List[];
   isLoading: boolean;
   error: string | null;
 }
 
 const initialState: ListState = {
-  id: 0,
+  lists: [],
   category: "",
   isLoading: false,
   error: null,
@@ -24,7 +25,7 @@ export const ListThunk = createAsyncThunk(
     const response = await fetch("http://localhost:3000/list", {
       method: "POST",
       headers: {
-        "contene-Type": "application/json",
+        "content-Type": "application/json",
       },
       body: JSON.stringify(newList),
     });
@@ -35,6 +36,7 @@ export const ListThunk = createAsyncThunk(
     return data;
   },
 );
+
 
 export const ListSlice = createSlice({
   name: "addCategory",
@@ -49,8 +51,9 @@ export const ListSlice = createSlice({
       state.isLoading = true;
       state.error = null;
     });
-    builder.addCase(ListThunk.fulfilled, (state) => {
+   builder.addCase(ListThunk.fulfilled, (state, action: PayloadAction<List>) => {
       state.isLoading = false;
+      state.lists.push(action.payload); 
     });
 
     builder.addCase(ListThunk.rejected, (state, action) => {

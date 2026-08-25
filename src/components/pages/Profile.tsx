@@ -1,8 +1,8 @@
 import styles from "./Profile.module.css";
 import greyprofile from "../../assets/greyprofile.png";
-import { useDispatch } from "react-redux";
-import type { AppDispatch } from "../../../store";
-import { updateProfileData } from "../../redux/features/ProfileSlices";
+// import { useDispatch } from "react-redux";
+// import type { AppDispatch } from "../../../store";
+// import { updateProfileData } from "../../redux/features/ProfileSlices";
 // import { useNavigate } from "react-router";
 
 export const Profile = () => {
@@ -11,7 +11,7 @@ export const Profile = () => {
   //   navigate("/");
   // };
 
-  const dispatch = useDispatch<AppDispatch>();
+  // const dispatch = useDispatch<AppDispatch>();
 
   const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,15 +33,6 @@ export const Profile = () => {
               type="userName"
               placeholder="Name..."
               className={styles.Name}
-              onChange={(e) =>
-                dispatch(
-                  updateProfileData(
-                    e.target.value as unknown as Parameters<
-                      typeof updateProfileData
-                    >[0],
-                  ),
-                )
-              }
             />
           </div>
 

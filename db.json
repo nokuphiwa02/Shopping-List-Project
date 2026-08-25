@@ -26,6 +26,15 @@
       "contact": "0639702439",
       "confirmPassword": "Phiwa@02",
       "id": "rkYGlMtTuhY"
+    },
+    {
+      "name": "Anele",
+      "surname": "Shange",
+      "email": "aneleshange20@gmail.com",
+      "password": "Anele@20",
+      "contact": "0785626970",
+      "confirmPassword": "Anele@20",
+      "id": "OML4mh6vQ4s"
     }
   ],
   "list": [
@@ -64,6 +73,58 @@
     {
       "category": "Category",
       "id": "c1Ea57_2SCo"
+    },
+    {
+      "category": "grocery",
+      "id": "Z4XszQW5rhE"
+    },
+    {
+      "category": "Neliswa's grocery",
+      "id": "yOGwy4aqqng"
+    },
+    {
+      "category": "lis",
+      "id": "ZGWv6zGniQI"
+    },
+    {
+      "category": "Nokuphiwa",
+      "id": "MDNefd52zCE"
+    },
+    {
+      "category": "Nokuphiwa",
+      "id": "mqKqdXKP8hc"
+    },
+    {
+      "category": "Nokuphiwa",
+      "id": "OSu05wDQnAY"
+    },
+    {
+      "category": "Nokuphiwa",
+      "id": "P98XavDPPjs"
+    },
+    {
+      "category": "Nokuphiwa",
+      "id": "_l9BH_xaJew"
+    },
+    {
+      "category": "h",
+      "id": "_1JzAV__ygU"
+    },
+    {
+      "category": "Grocery",
+      "id": "decTNTQL4A0"
+    },
+    {
+      "category": "Nokuphiwa 24th Birthday shopping",
+      "id": "eC_oV2pWTig"
+    },
+    {
+      "category": "",
+      "id": "g-8_opDmRN4"
+    },
+    {
+      "category": "Grocery",
+      "id": "n3AgPldtxwg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
