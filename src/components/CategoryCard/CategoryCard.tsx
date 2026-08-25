@@ -10,9 +10,10 @@ interface CategoryCardProps {
 export const CategoryCard = ({ category, onView, onDelete }: CategoryCardProps) => {
   return (
     <div className={styles.categoryCard}>
-      <h2>{category.category}</h2>
-
+     
       <div className={styles.categoryBtn}>
+         <h2>{category.category}</h2>
+
         <button onClick={onView} className={styles.viewBtn}>
           View
         </button>
