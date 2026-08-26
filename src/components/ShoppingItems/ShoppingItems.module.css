@@ -1,0 +1,25 @@
+.itemContainer{
+    width: 100%;
+    height: 70vh;
+    background-color: #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemContent{
+  width: 99%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  border: solid grey;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.name,.quantity, .optional{
+  width: 250px;
+  height: 30px;
+  border-radius: 10px;
+}

@@ -5,6 +5,7 @@ import { ShoppingForm } from "../shoppingForm/shoppingForm";
 import { CategoryCard } from "../CategoryCard/CategoryCard";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../../store";
+import { ShoppingItems } from "../ShoppingItems/ShoppingItems";
 
 export const Home = () => {
   const lists = useSelector((state: RootState) => state.addCategory);
@@ -22,6 +23,7 @@ export const Home = () => {
             onDelete={() => ({})}
           />
         ))}
+         <ShoppingItems />
       </div>
     </div>
   );
