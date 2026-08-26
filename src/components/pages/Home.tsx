@@ -37,7 +37,6 @@ export const Home = () => {
           />
         ))}
         <ShoppingItems />
-        {/* <div> */}
         {items.map((item) => (
           <ItemCard
             key={item.id}
@@ -46,7 +45,6 @@ export const Home = () => {
             onDelete={() => ({})}
           />
         ))}
-        {/* </div> */}
       </div>
     </div>
   );
