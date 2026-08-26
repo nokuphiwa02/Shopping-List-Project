@@ -1,10 +1,11 @@
 .itemContainer{
-    width: 100%;
+    width: 98%;
     height: 70vh;
     background-color: #212121;
     display: flex;
     justify-content: center;
     align-items: center;
+   /* border: solid red; */
 }
 
 .itemContent{
@@ -18,8 +19,15 @@
   align-items: center;
 }
 
-.name,.quantity, .optional{
+/* .name,.quantity, .optional{
   width: 250px;
   height: 30px;
   border-radius: 10px;
+} */
+
+input{
+  width: 350px;
+  height: 50px;
+  border-radius: 10px;
+  /* border: solid red; */
 }

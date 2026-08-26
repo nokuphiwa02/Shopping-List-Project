@@ -26,7 +26,7 @@ export const ShoppingForm = () => {
           placeholder="submit"/>
           
         <div className={styles.btns}>
-          <button className={styles.editBtn}>Edit</button>
+          {/* <button className={styles.editBtn}>Edit</button> */}
           <button className={styles.addBtn} onClick={() => handleSave}>
             +Add Button
           </button>

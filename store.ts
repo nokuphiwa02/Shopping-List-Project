@@ -3,6 +3,7 @@ import registerReducer  from './src/redux/features/RegisterSlice'
 import loginReducer from './src/redux/features/LoginSlices'
 import listReducer from './src/redux/features/ShoppingListSlice'
 import profileReducer from './src/redux/features/ProfileSlices'
+import itemsReducer from './src/redux/features/ShoppingItemSlices'
 
 export const store = configureStore({
   reducer: { 
@@ -10,7 +11,7 @@ export const store = configureStore({
     signIn: loginReducer,
     addCategory: listReducer,
     profile: profileReducer,
-
+    addItem: itemsReducer,
 }
 })
 

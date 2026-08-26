@@ -37,6 +37,25 @@ export const ListThunk = createAsyncThunk(
   },
 );
 
+export const getListThunk = createAsyncThunk(
+  "List/getListThunk",
+  async () => {
+    const response = await fetch("http://localhost:3000/list", {
+      method: "GET",
+      headers: {
+        "content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("failed to add list");
+    }
+    const data = await response.json();
+    console.log(data)
+    return data;
+  },
+);
+
 
 export const ListSlice = createSlice({
   name: "addCategory",
@@ -60,6 +79,11 @@ export const ListSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload as string;
     });
+    builder.addCase(getListThunk .fulfilled, (state, action: PayloadAction<List>) => {
+          state.isLoading = false;
+          state.lists.push(action.payload); 
+        });
+
   },
 });
 
