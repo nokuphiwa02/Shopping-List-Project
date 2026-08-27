@@ -56,6 +56,29 @@ export const getListThunk = createAsyncThunk(
   },
 );
 
+export const deleteListThunk = createAsyncThunk(
+  "List/deleteListThunk",
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await fetch(`http://localhost:3000/list/`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete item from the list");
+      }
+
+      
+      return id; 
+    } catch (error) {
+  return rejectWithValue((error as Error).message);
+}
+  }
+);
+
 
 export const ListSlice = createSlice({
   name: "addCategory",
@@ -83,7 +106,20 @@ export const ListSlice = createSlice({
           state.isLoading = false;
           state.lists.push(action.payload); 
         });
+    builder.addCase(deleteListThunk.pending, (state) => {
+          state.isLoading = true;
+          state.error = null; 
+        })
+    builder.addCase(deleteListThunk.fulfilled, (state, action) => {
+          state.isLoading = false;
+          state.lists = state.lists.filter(list => list.id !== action.payload);
+        });
 
+    builder .addCase(deleteListThunk.rejected, (state, action) => {
+          state.isLoading = false;
+          state.error = action.payload as string || 'Failed to delete list';
+        });
+     
   },
 });
 

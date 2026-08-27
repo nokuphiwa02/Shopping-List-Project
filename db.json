@@ -35,6 +35,15 @@
       "contact": "0785626970",
       "confirmPassword": "Anele@20",
       "id": "OML4mh6vQ4s"
+    },
+    {
+      "name": "Sabelo",
+      "surname": "Gumede",
+      "email": "sabelogumede@gmail.com",
+      "password": "123456",
+      "contact": "0123456789",
+      "confirmPassword": "123456",
+      "id": "PevuzCcG89c"
     }
   ],
   "list": [
@@ -209,6 +218,18 @@
     {
       "category": "ytuet",
       "id": "PLDNPExMkTI"
+    },
+    {
+      "category": "sfgryher",
+      "id": "Ouz9r_N9fz0"
+    },
+    {
+      "category": "Glocery",
+      "id": "tBIw-vfSIGI"
+    },
+    {
+      "category": "",
+      "id": "ccmeaKn5vNQ"
     }
   ],
   "items": [
@@ -217,6 +238,60 @@
       "quantity": 2,
       "optionalNote": "rtyewy5",
       "id": "keqvm_BWPg0"
+    },
+    {
+      "name": "",
+      "quantity": 0,
+      "optionalNote": "",
+      "id": "LvUdDg1zeGg"
+    },
+    {
+      "name": "",
+      "quantity": 0,
+      "optionalNote": "",
+      "id": "BNCjZs5H8rU"
+    },
+    {
+      "name": "",
+      "quantity": 0,
+      "optionalNote": "",
+      "id": "3V9_GjbcQJM"
+    },
+    {
+      "name": "",
+      "quantity": 0,
+      "optionalNote": "",
+      "id": "J5XXVymh6vk"
+    },
+    {
+      "name": "",
+      "quantity": 0,
+      "optionalNote": "",
+      "id": "dtXNNycdJCQ"
+    },
+    {
+      "name": "",
+      "quantity": 0,
+      "optionalNote": "",
+      "id": "GIrwpLvs0Es"
+    },
+    {
+      "name": "",
+      "quantity": 0,
+      "optionalNote": "",
+      "id": "FY7153U3xXw"
+    },
+    {
+      "name": "",
+      "quantity": 0,
+      "optionalNote": "",
+      "id": "kw9qgCvciLY"
+    },
+    {
+      "name": "",
+      "quantity": 0,
+      "optionalNote": "",
+      "id": "eXuhf1wDwYA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -1,17 +1,13 @@
 import styles from "./Profile.module.css";
 import greyprofile from "../../assets/greyprofile.png";
-// import { useDispatch } from "react-redux";
-// import type { AppDispatch } from "../../../store";
-// import { updateProfileData } from "../../redux/features/ProfileSlices";
-// import { useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 export const Profile = () => {
-  // const navigate = useNavigate();
-  // const register = () => {
-  //   navigate("/");
-  // };
-
-  // const dispatch = useDispatch<AppDispatch>();
+ const navigate = useNavigate();
+  const back = () => {
+    navigate("/homepage");
+  };
+  
 
   const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,6 +16,7 @@ export const Profile = () => {
   return (
     <form onSubmit={handleSave} className={styles.profileContainer}>
       <div className={styles.profileContent}>
+         
         <h1>Profile</h1>
         <img
           src={greyprofile}
@@ -71,9 +68,12 @@ export const Profile = () => {
               className={styles.Password}
             />
           </div>
-
-          <button className={styles.delBtn}> Delete</button>
+            <div className={styles.btns}>
+          <button className={styles.delBtn}>LogOut</button>
           <button className={styles.editBtn}>Edit</button>
+          
+            <button className={styles.backBtn} onClick={back}>Back</button>
+          </div>
         </div>
       </div>
     </form>

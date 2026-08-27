@@ -2,9 +2,15 @@ import React from 'react'
 import styles from './ShoppingItems.module.css'
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../../store";
+import { useNavigate } from 'react-router';
 import { addName, addQuantity, addOptionalnote ,ItemsThunk } from '../../redux/features/ShoppingItemSlices'
 
 export const ShoppingItems = () => {
+ const navigate = useNavigate();
+  const back = () => {
+    navigate("/homepage");
+  };
+
 const dispatch = useDispatch<AppDispatch>();
 const { name, quantity,optionalNote } =useSelector((state: RootState) => state.addItem); 
 
@@ -18,6 +24,7 @@ const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
     <form onSubmit={handleSave} className={styles.itemContainer}>
     <div className={styles.itemContainer}>
         <div className={styles.itemContent}>
+          
         <h1>Shopping Items</h1>
 
         <input className={styles.name}
@@ -38,10 +45,14 @@ const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
        value={optionalNote}
        onChange={(e) => dispatch(addOptionalnote(e.target.value))}/>
 
-     
+        <div className={styles.buttons}>
         <button className={styles.addBtn} onClick={() => handleSave}>
             +Add Button
         </button>
+         <button className={styles.back} onClick={back}>
+          Back
+        </button>
+        </div>
     </div>
     </div>
     </form>

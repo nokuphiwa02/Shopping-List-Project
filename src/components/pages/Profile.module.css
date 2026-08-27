@@ -62,3 +62,16 @@ h1 {
   gap: 20px;
   text-align: start; 
 }
+
+.backBtn{
+ margin-bottom: 50px;
+ color: white;
+ background-color: blue;
+}
+.btns{
+ display: flex;
+ flex-direction: column;
+ gap: 5px;
+ margin-left: 10px;
+ margin-bottom: 20px;
+}
