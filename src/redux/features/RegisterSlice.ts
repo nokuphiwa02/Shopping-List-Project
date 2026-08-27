@@ -4,7 +4,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 
 export interface User{
-    id?: number,
+    id?: string,
     name:string,
     surname: string,
     email: string,
@@ -19,7 +19,7 @@ error: string | null
 }
 
 const initialState: UserState = {
-    id: 0,
+    id: '',
     name :'',
     surname: '',
     email : '',

@@ -44,45 +44,27 @@
       "contact": "0123456789",
       "confirmPassword": "123456",
       "id": "PevuzCcG89c"
+    },
+    {
+      "name": "Nely",
+      "surname": "Ngcobo",
+      "email": "neli@gmail.com",
+      "password": "Neliswa",
+      "contact": "0712346776",
+      "confirmPassword": "Neliswa",
+      "id": "xyoDoR6RUG4"
+    },
+    {
+      "name": "Nokuphiw8",
+      "surname": "Shange",
+      "email": "shangenokiw683@gmail.com",
+      "password": "Phiwa",
+      "contact": "7887",
+      "confirmPassword": "Phiwa",
+      "id": "Rjz92Coy5Ls"
     }
   ],
   "list": [
-    {
-      "category": "Category",
-      "id": "arfuvOlZxug"
-    },
-    {
-      "category": "Category",
-      "id": "icwuhaXp9zA"
-    },
-    {
-      "category": "Category",
-      "id": "3FO4h7xsvYU"
-    },
-    {
-      "category": "Category",
-      "id": "9oTf1iyurXo"
-    },
-    {
-      "category": "Category",
-      "id": "vZuwinXFkOg"
-    },
-    {
-      "category": "Category",
-      "id": "NSw-iilOou0"
-    },
-    {
-      "category": "Category",
-      "id": "Kyj8Cvmc5Jk"
-    },
-    {
-      "category": "Category",
-      "id": "4Wo3Yy3niIw"
-    },
-    {
-      "category": "Category",
-      "id": "c1Ea57_2SCo"
-    },
     {
       "category": "grocery",
       "id": "Z4XszQW5rhE"
@@ -92,206 +74,34 @@
       "id": "yOGwy4aqqng"
     },
     {
-      "category": "lis",
-      "id": "ZGWv6zGniQI"
-    },
-    {
-      "category": "Nokuphiwa",
-      "id": "MDNefd52zCE"
-    },
-    {
-      "category": "Nokuphiwa",
-      "id": "mqKqdXKP8hc"
-    },
-    {
-      "category": "Nokuphiwa",
-      "id": "OSu05wDQnAY"
-    },
-    {
-      "category": "Nokuphiwa",
-      "id": "P98XavDPPjs"
-    },
-    {
       "category": "Nokuphiwa",
       "id": "_l9BH_xaJew"
-    },
-    {
-      "category": "h",
-      "id": "_1JzAV__ygU"
-    },
-    {
-      "category": "Grocery",
-      "id": "decTNTQL4A0"
-    },
-    {
-      "category": "Nokuphiwa 24th Birthday shopping",
-      "id": "eC_oV2pWTig"
-    },
-    {
-      "category": "",
-      "id": "g-8_opDmRN4"
-    },
-    {
-      "category": "Grocery",
-      "id": "n3AgPldtxwg"
-    },
-    {
-      "category": "Home",
-      "id": "MYLnZ2Lm_eM"
-    },
-    {
-      "category": "Grocery",
-      "id": "Vt-fsDny3sg"
-    },
-    {
-      "category": "Nondumo's Memulo",
-      "id": "09fBAHQwlQ0"
-    },
-    {
-      "category": "w4eastggfd",
-      "id": "o18wiqi2QHU"
-    },
-    {
-      "category": "wasfzdxgzsd",
-      "id": "lsdUFKvDqo8"
-    },
-    {
-      "category": "grocery",
-      "id": "TUF-silneak"
-    },
-    {
-      "category": "Home",
-      "id": "Cl72CcWOaDc"
-    },
-    {
-      "category": "ujhradsikxlz,lfjhkir",
-      "id": "Tc5jhTfMTHM"
-    },
-    {
-      "category": "ugwueaskfldi",
-      "id": "tepi-LUN2Vc"
-    },
-    {
-      "category": "nklsefd\\.a?",
-      "id": "2eMmnpfKavs"
-    },
-    {
-      "category": "weasfi'lkd",
-      "id": "ZHkpjx1ST3E"
-    },
-    {
-      "category": "weta",
-      "id": "zmBc8KYwpkQ"
-    },
-    {
-      "category": "ef3grtfvef",
-      "id": "KjPZvAus4Yk"
-    },
-    {
-      "category": "ju",
-      "id": "LMSxegZiLPc"
-    },
-    {
-      "category": "t6r",
-      "id": "iHdIElDEJ_0"
-    },
-    {
-      "category": "uy",
-      "id": "42GbVvWpiu0"
-    },
-    {
-      "category": "shange",
-      "id": "9cZwHOdtgIM"
-    },
-    {
-      "category": "ewtwt4e",
-      "id": "ML0dmrkUZvE"
-    },
-    {
-      "category": "knkjkj",
-      "id": "1g_JAkXm5vY"
-    },
-    {
-      "category": "reyr4t43",
-      "id": "qWjXs571d7k"
-    },
-    {
-      "category": "ytuet",
-      "id": "PLDNPExMkTI"
-    },
-    {
-      "category": "sfgryher",
-      "id": "Ouz9r_N9fz0"
-    },
-    {
-      "category": "Glocery",
-      "id": "tBIw-vfSIGI"
-    },
-    {
-      "category": "",
-      "id": "ccmeaKn5vNQ"
     }
   ],
   "items": [
     {
-      "name": "34q67",
-      "quantity": 2,
-      "optionalNote": "rtyewy5",
-      "id": "keqvm_BWPg0"
+      "name": "",
+      "quantity": 0,
+      "optionalNote": "",
+      "id": "cfDlFANYMd0"
     },
     {
       "name": "",
       "quantity": 0,
       "optionalNote": "",
-      "id": "LvUdDg1zeGg"
+      "id": "V1CTZAm0S0c"
     },
     {
       "name": "",
       "quantity": 0,
       "optionalNote": "",
-      "id": "BNCjZs5H8rU"
+      "id": "DsEX8eXJ4so"
     },
     {
       "name": "",
       "quantity": 0,
       "optionalNote": "",
-      "id": "3V9_GjbcQJM"
-    },
-    {
-      "name": "",
-      "quantity": 0,
-      "optionalNote": "",
-      "id": "J5XXVymh6vk"
-    },
-    {
-      "name": "",
-      "quantity": 0,
-      "optionalNote": "",
-      "id": "dtXNNycdJCQ"
-    },
-    {
-      "name": "",
-      "quantity": 0,
-      "optionalNote": "",
-      "id": "GIrwpLvs0Es"
-    },
-    {
-      "name": "",
-      "quantity": 0,
-      "optionalNote": "",
-      "id": "FY7153U3xXw"
-    },
-    {
-      "name": "",
-      "quantity": 0,
-      "optionalNote": "",
-      "id": "kw9qgCvciLY"
-    },
-    {
-      "name": "",
-      "quantity": 0,
-      "optionalNote": "",
-      "id": "eXuhf1wDwYA"
+      "id": "9Ap2JPRq1IA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

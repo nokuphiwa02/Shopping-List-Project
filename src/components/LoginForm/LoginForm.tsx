@@ -9,6 +9,7 @@ import {
 import type { RootState } from "../../../store";
 import type { AppDispatch } from "../../../store";
 
+
 export const LoginForm = () => {
   const navigate = useNavigate();
   const signUp = () => {
@@ -22,27 +23,26 @@ export const LoginForm = () => {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  const { email, password } = useSelector((state: RootState) => state.signIn);
+  const password = useSelector(
+    (state: RootState) => state.signIn.currentUser?.password,
+  );
+  const email = useSelector(
+    (state: RootState) => state.signIn.currentUser?.email,
+  );
+
   const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const result = await dispatch(LoginThunk({ email, password }));
-    if (LoginThunk.fulfilled.match(result)) {
-      alert("Login successful");
-      navigate("/homepage");
-    }
-    
-    if (LoginThunk.rejected.match(result)) {
-      const payload = result.payload as
-        | { status?: number; message?: string }
-        | undefined;
-      const errorMessage = payload?.message || result.error?.message;
+    if (email && password) {
+      // TypeScript now knows both variables are safely defined as strings
+      const result = await dispatch(LoginThunk({ email, password }));
 
-      if (errorMessage === "user not found" || payload?.status === 404) {
-        alert("user not found. Please check your email or sign up.");
-      } else {
-        alert("Login failed. Please try again.");
+      if (LoginThunk.fulfilled.match(result)) {
+        alert("Login successful");
+        navigate("/homepage");
       }
+    } else {
+      alert("Please enter both email and password.");
     }
   };
 
@@ -57,6 +57,7 @@ export const LoginForm = () => {
             type="email"
             className={styles.emailInput}
             onChange={(e) => dispatch(updateEmailAddress(e.target.value))}
+            value={email}
           />
         </div>
 
@@ -66,6 +67,7 @@ export const LoginForm = () => {
             type="password"
             className={styles.passwordInput}
             onChange={(e) => dispatch(updatePassword(e.target.value))}
+            value={password}
           />
         </div>
 

@@ -5,33 +5,38 @@ import { ShoppingForm } from "../shoppingForm/shoppingForm";
 import { CategoryCard } from "../CategoryCard/CategoryCard";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../../store";
-import { getItemsThunk } from "../../redux/features/ShoppingItemSlices";
+// import { getItemsThunk } from "../../redux/features/ShoppingItemSlices";
 import { useEffect } from "react";
-import { getListThunk } from "../../redux/features/ShoppingListSlice";
+import { getList } from "../../redux/features/ShoppingListSlice";
+import { deleteList } from "../../redux/features/ShoppingListSlice";
 
 export const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
-  useEffect(() => {
-    dispatch(getItemsThunk());
-  }, []);
-  useEffect(() => {
-    dispatch(getListThunk());
-  }, []);
-  const lists = useSelector((state: RootState) => state.addCategory);
  
 
+  useEffect(() => {
+    dispatch(getList());
+  }, []);
+
+  
+ 
+
+
+  const lists = useSelector((state: RootState) => state.addCategory.lists);
+  
+  console.log(lists)
   return (
     <div className={styles.HomeContainer}>
       <div>
         <Navbar />
         <SearchBar onSearch={() => {}} />
         <ShoppingForm />
-        {lists.lists.map((item) => (
+        {lists.map((item) => (
           <CategoryCard
             key={item.id}
             category={item}
             onView={() => ({})}
-            onDelete={() => ({})}
+            onDelete={() => {dispatch(deleteList(item.id!))}}
             onUpdate={() => ({})}
           />
         ))}

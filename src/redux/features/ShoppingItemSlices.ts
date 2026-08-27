@@ -63,6 +63,30 @@ export const getItemsThunk = createAsyncThunk(
   },
 );
 
+export const deleteItemThunk = createAsyncThunk(
+  "Items/deleteItemThunk",
+  async (id: string, { rejectWithValue }) => {
+    try {
+      const response = await fetch(`http://localhost:3000/items/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete item from the list");
+      }
+
+      return id;
+    } catch (error) {
+      return rejectWithValue((error as Error).message);
+    }
+  },
+);
+
+
+
 export const ItemSlice = createSlice({
   name: "addItem",
   initialState,
@@ -93,10 +117,24 @@ export const ItemSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload as string;
     });
-builder.addCase(getItemsThunk.fulfilled, (state, action) => {
-  state.isLoading = false
-  state.items = action.payload; 
-});
+    builder.addCase(getItemsThunk.fulfilled, (state, action) => {
+      state.isLoading = false
+      state.items = action.payload; 
+    });
+    builder.addCase(deleteItemThunk.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      });
+    builder.addCase(deleteItemThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.items = state.items.filter((items) => items.id !== action.payload);
+      });
+  
+    builder.addCase(deleteItemThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = (action.payload as string) || "Failed to delete item";
+      });
+
 
   },
 });

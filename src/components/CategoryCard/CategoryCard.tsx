@@ -9,13 +9,17 @@ interface CategoryCardProps {
   onUpdate: () => void;
 }
 
-export const CategoryCard = ({ category, onDelete }: CategoryCardProps) => {
+export const CategoryCard = ({ category, onDelete, onUpdate}: CategoryCardProps) => {
  const navigate = useNavigate();
  const view = () => {
   navigate("/ShoppingItemPage")
  }
 
+  
+
+
   return (
+
     <div className={styles.categoryCard}>
      
       <div className={styles.categoryBtn}>
@@ -25,10 +29,10 @@ export const CategoryCard = ({ category, onDelete }: CategoryCardProps) => {
           View
         </button>
 
-        <button onClick={onDelete} className={styles.deleteBtn}>
+        <button  onClick={onDelete} className={styles.deleteBtn}>
           Delete
         </button>
-         <button onClick={onDelete} className={styles.deleteBtn}>
+         <button onClick={onUpdate} className={styles.deleteBtn}>
          Update
         </button>
       </div>

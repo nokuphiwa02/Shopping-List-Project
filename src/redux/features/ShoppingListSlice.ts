@@ -3,23 +3,25 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface List {
   id?: string;
+  userId: string;
   category: string;
 }
 
 interface ListState extends List {
-  lists:List[];
+  lists: List[];
   isLoading: boolean;
   error: string | null;
 }
 
 const initialState: ListState = {
   lists: [],
+  userId: '',
   category: "",
   isLoading: false,
   error: null,
 };
 
-export const ListThunk = createAsyncThunk(
+export const createList = createAsyncThunk(
   "List/ListThunk",
   async (newList: Omit<List, "id">) => {
     const response = await fetch("http://localhost:3000/list", {
@@ -37,30 +39,29 @@ export const ListThunk = createAsyncThunk(
   },
 );
 
-export const getListThunk = createAsyncThunk(
-  "List/getListThunk",
+export const getList = createAsyncThunk(
+  "List/getListThunk", 
   async () => {
-    const response = await fetch("http://localhost:3000/list", {
-      method: "GET",
-      headers: {
-        "content-Type": "application/json",
-      },
-    });
+  const response = await fetch(`http://localhost:3000/list}`, {
+    method: "GET",
+    headers: {
+      "content-Type": "application/json",
+    },
+  });
 
-    if (!response.ok) {
-      throw new Error("failed to add list");
-    }
-    const data = await response.json();
-    console.log(data)
-    return data;
-  },
-);
+  if (!response.ok) {
+    throw new Error("failed to add list");
+  }
+  const data = await response.json();
+  console.log(data);
+  return data;
+});
 
-export const deleteListThunk = createAsyncThunk(
-  "List/deleteListThunk",
-  async (id, { rejectWithValue }) => {
+export const deleteList = createAsyncThunk(
+  "List/deleteList",
+  async (id: string, { rejectWithValue }) => {
     try {
-      const response = await fetch(`http://localhost:3000/list/`, {
+      const response = await fetch(`http://localhost:3000/list/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -71,14 +72,12 @@ export const deleteListThunk = createAsyncThunk(
         throw new Error("Failed to delete item from the list");
       }
 
-      
-      return id; 
+      return id;
     } catch (error) {
-  return rejectWithValue((error as Error).message);
-}
-  }
+      return rejectWithValue((error as Error).message);
+    }
+  },
 );
-
 
 export const ListSlice = createSlice({
   name: "addCategory",
@@ -89,37 +88,40 @@ export const ListSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(ListThunk.pending, (state) => {
+    builder.addCase(createList.pending, (state) => {
       state.isLoading = true;
       state.error = null;
     });
-   builder.addCase(ListThunk.fulfilled, (state, action: PayloadAction<List>) => {
-      state.isLoading = false;
-      state.lists.push(action.payload); 
-    });
+    builder.addCase(
+      createList.fulfilled,
+      (state, action: PayloadAction<List>) => {
+        state.isLoading = false;
+        state.lists = [...state.lists, action.payload];
+      },
+    );
 
-    builder.addCase(ListThunk.rejected, (state, action) => {
+    builder.addCase(createList.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload as string;
     });
-    builder.addCase(getListThunk .fulfilled, (state, action: PayloadAction<List>) => {
-          state.isLoading = false;
-          state.lists.push(action.payload); 
-        });
-    builder.addCase(deleteListThunk.pending, (state) => {
-          state.isLoading = true;
-          state.error = null; 
-        })
-    builder.addCase(deleteListThunk.fulfilled, (state, action) => {
-          state.isLoading = false;
-          state.lists = state.lists.filter(list => list.id !== action.payload);
-        });
 
-    builder .addCase(deleteListThunk.rejected, (state, action) => {
-          state.isLoading = false;
-          state.error = action.payload as string || 'Failed to delete list';
-        });
-     
+    builder.addCase(getList.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.lists = action.payload;
+    });
+    builder.addCase(deleteList.pending, (state) => {
+      state.isLoading = true;
+      state.error = null;
+    });
+    builder.addCase(deleteList.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.lists = state.lists.filter((list) => list.id !== action.payload);
+    });
+
+    builder.addCase(deleteList.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = (action.payload as string) || "Failed to delete list";
+    });
   },
 });
 

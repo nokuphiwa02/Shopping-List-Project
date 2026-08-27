@@ -2,15 +2,25 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../../store";
 import styles from "./shopping.module.css";
-import { addCategory, ListThunk } from "../../redux/features/ShoppingListSlice";
+import {
+  addCategory,
+  createList,
+} from "../../redux/features/ShoppingListSlice";
 
 export const ShoppingForm = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { category } = useSelector((state: RootState) => state.addCategory);
 
+  const user = useSelector((state: RootState) => state.signIn.currentUser);
+
   const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(ListThunk({ category }));
+    dispatch(
+      createList({
+        userId: user?.id ?? " ",
+        category,
+      }),
+    );
   };
 
   return (
@@ -23,8 +33,9 @@ export const ShoppingForm = () => {
           type="text"
           value={category}
           onChange={(e) => dispatch(addCategory(e.target.value))}
-          placeholder="submit"/>
-          
+          placeholder="submit"
+        />
+
         <div className={styles.btns}>
           <button className={styles.addBtn} onClick={() => handleSave}>
             +Add Button
