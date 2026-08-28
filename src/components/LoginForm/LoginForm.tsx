@@ -1,14 +1,13 @@
 import styles from "./LoginForm.module.css";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
+import { LoginThunk } from "../../redux/features/LoginSlices";
+import type { RootState } from "../../../store";
+import type { AppDispatch } from "../../../store";
 import {
   updateEmailAddress,
   updatePassword,
-  LoginThunk,
-} from "../../redux/features/LoginSlices";
-import type { RootState } from "../../../store";
-import type { AppDispatch } from "../../../store";
-
+} from "../../redux/features/RegisterSlice";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
@@ -23,12 +22,8 @@ export const LoginForm = () => {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  const password = useSelector(
-    (state: RootState) => state.signIn.currentUser?.password,
-  );
-  const email = useSelector(
-    (state: RootState) => state.signIn.currentUser?.email,
-  );
+  const password = useSelector((state: RootState) => state.signUp.password);
+  const email = useSelector((state: RootState) => state.signUp.email);
 
   const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -71,11 +66,11 @@ export const LoginForm = () => {
           />
         </div>
 
-        <button className={styles.loginBtn} onClick={() => handleSave}>
+        <button className={styles.loginBtn} type="submit">
           Sign In
         </button>
 
-        <button className={styles.registerBtn} onClick={signUp}>
+        <button className={styles.registerBtn} type="button" onClick={signUp}>
           Sign up
         </button>
 

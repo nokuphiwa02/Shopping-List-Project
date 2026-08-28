@@ -5,26 +5,25 @@ import { ShoppingForm } from "../shoppingForm/shoppingForm";
 import { CategoryCard } from "../CategoryCard/CategoryCard";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../../store";
-// import { getItemsThunk } from "../../redux/features/ShoppingItemSlices";
 import { useEffect } from "react";
 import { getList } from "../../redux/features/ShoppingListSlice";
 import { deleteList } from "../../redux/features/ShoppingListSlice";
+import { updateList } from "../../redux/features/ShoppingListSlice"
 
 export const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
- 
+
+  const user = useSelector((state: RootState) => state.signIn.currentUser);
 
   useEffect(() => {
-    dispatch(getList());
+    if (user?.id) {
+      dispatch(getList(user.id));
+    }
   }, []);
 
-  
- 
-
-
   const lists = useSelector((state: RootState) => state.addCategory.lists);
-  
-  console.log(lists)
+
+  console.log(lists);
   return (
     <div className={styles.HomeContainer}>
       <div>
@@ -36,11 +35,13 @@ export const Home = () => {
             key={item.id}
             category={item}
             onView={() => ({})}
-            onDelete={() => {dispatch(deleteList(item.id!))}}
-            onUpdate={() => ({})}
+            onDelete={() => {dispatch(deleteList(item.id!));
+            }}
+            onUpdate={() => {dispatch(updateList(item))
+
+            }}
           />
         ))}
-        
       </div>
     </div>
   );

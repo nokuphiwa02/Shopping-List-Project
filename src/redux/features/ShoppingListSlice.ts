@@ -15,7 +15,7 @@ interface ListState extends List {
 
 const initialState: ListState = {
   lists: [],
-  userId: '',
+  userId: "",
   category: "",
   isLoading: false,
   error: null,
@@ -40,22 +40,26 @@ export const createList = createAsyncThunk(
 );
 
 export const getList = createAsyncThunk(
-  "List/getListThunk", 
-  async () => {
-  const response = await fetch(`http://localhost:3000/list}`, {
-    method: "GET",
-    headers: {
-      "content-Type": "application/json",
-    },
-  });
+  "List/getListThunk",
+  async (userId: string) => {
+    const response = await fetch(
+      `http://localhost:3000/list?userId=${userId}`,
+      {
+        method: "GET",
+        headers: {
+          "content-Type": "application/json",
+        },
+       },
+      );
 
-  if (!response.ok) {
-    throw new Error("failed to add list");
-  }
-  const data = await response.json();
-  console.log(data);
-  return data;
-});
+    if (!response.ok) {
+      throw new Error("failed to add list");
+    }
+    const data = await response.json();
+    console.log(data);
+    return data;
+  },
+);
 
 export const deleteList = createAsyncThunk(
   "List/deleteList",
@@ -78,6 +82,30 @@ export const deleteList = createAsyncThunk(
     }
   },
 );
+export const updateList = createAsyncThunk(
+  "List/updateList",
+  async (updatedList: List, { rejectWithValue }) => {
+    try {
+      const response = await fetch(`http://localhost:3000/list/${updatedList.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedList),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to update item from the list");
+      }
+
+      const data = await response.json();
+      return data as List;
+    } catch (error) {
+      return rejectWithValue((error as Error).message);
+    }
+  },
+);
+
 
 export const ListSlice = createSlice({
   name: "addCategory",
@@ -122,8 +150,24 @@ export const ListSlice = createSlice({
       state.isLoading = false;
       state.error = (action.payload as string) || "Failed to delete list";
     });
+    builder.addCase(updateList.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      });
+      builder.addCase(updateList.fulfilled,(state, action: PayloadAction<List>) => {
+          state.isLoading = false;
+          state.lists = state.lists.map((list) =>
+            list.id === action.payload.id ? action.payload : list
+          );
+        },
+      );
+      builder.addCase(updateList.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = (action.payload as string) || "Failed to update list";
+    });
   },
 });
+
 
 export const { addCategory } = ListSlice.actions;
 

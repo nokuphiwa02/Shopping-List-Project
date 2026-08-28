@@ -3,22 +3,54 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import type { User } from './RegisterSlice' 
 
+
+interface RootState {
+  signIn?: {
+    user: {
+      id: string | number;
+    };
+  };
+  profile: ProfileState;
+}
+
 interface ProfileState {
-  data: User | null
-  isLoading: boolean
-  error: string | null
+    id?: number | string,
+    name: string,
+    surname: string,
+    email: string,
+    password: string,
+    contact: string,
+    isLoading: boolean
+    error: string | null
 }
 
 const initialState: ProfileState = {
-  data: null,
-  isLoading: false,
-  error: null
+    name: '',
+    surname: '',
+    email: '',
+    password: '',
+    contact: '',
+    isLoading: false,
+    error: null
 }
 
-export const FetchProfileThunk = createAsyncThunk(
+const getAuthenticatedUser = (state: RootState): string | null | number => {
+  return state.signIn?.user.id || null;
+}
+
+export const FetchProfileThunk = createAsyncThunk<
+  User, 
+  void, 
+  { state: RootState; rejectValue: string }
+>  (
   "profile/FetchProfileThunk", 
-  async (userId: number, { rejectWithValue }) => {
+  async (_, { getState, rejectWithValue }) => {
     try {
+      const state = getState();
+      const userId = getAuthenticatedUser(state);
+
+      if (!userId) throw new Error('No authenticated user found');
+
       const response = await fetch(`http://localhost:3000/users/${userId}`, {
         method: "GET",
         headers: {
@@ -34,9 +66,41 @@ export const FetchProfileThunk = createAsyncThunk(
       return data as User;
     } 
     catch (error: unknown) {
-  return rejectWithValue((error as Error).message);
-}
+      return rejectWithValue((error as Error).message);
+    }
+  }
+)
 
+export const UpdateProfileThunk = createAsyncThunk<
+  User, 
+  Partial<Omit<ProfileState, 'isLoading' | 'error'>>, 
+  { state: RootState; rejectValue: string } 
+>(
+  "profile/UpdateProfileThunk",
+  async (updatedFields, { getState, rejectWithValue }) => {
+    try {
+      const state = getState();
+      const userId = getAuthenticatedUser(state);
+
+      if (!userId) throw new Error('No authenticated user found');
+
+      const response = await fetch(`http://localhost:3000/users/${userId}`, {
+        method: "PUT", 
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updatedFields)
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to update profile");
+      }
+
+      const data = await response.json();
+      return data as User;
+    } catch (error: unknown) {
+      return rejectWithValue((error as Error).message);
+    }
   }
 )
 
@@ -44,15 +108,7 @@ export const ProfileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
-   
-    updateProfileData: (state, action: PayloadAction<User>) => {
-      state.data = action.payload
-    },
-
-    clearProfile: (state) => {
-      state.data = null;
-      state.error = null;
-    },
+   clearProfile: () => initialState
   },
   extraReducers: (builder) => {
     builder
@@ -62,14 +118,37 @@ export const ProfileSlice = createSlice({
       })
       .addCase(FetchProfileThunk.fulfilled, (state, action: PayloadAction<User>) => {
         state.isLoading = false;
-        state.data = action.payload;
+        state.id = action.payload.id;
+        state.name = action.payload.name || '';
+        state.surname = action.payload.surname || '';
+        state.contact = action.payload.contact || '';
+        state.email = action.payload.email || '';
+        state.password = action.payload.password || '';
       })
       .addCase(FetchProfileThunk.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload as string || action.error.message || "Something went wrong";
+        state.error = action.payload || action.error.message || "Something went wrong";
+      })
+      
+      .addCase(UpdateProfileThunk.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(UpdateProfileThunk.fulfilled, (state, action: PayloadAction<User>) => {
+        state.isLoading = false;
+        state.id = action.payload.id;
+        state.name = action.payload.name || '';
+        state.surname = action.payload.surname || '';
+        state.contact = action.payload.contact || '';
+        state.email = action.payload.email || '';
+        state.password = action.payload.password || '';
+      })
+      .addCase(UpdateProfileThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload || action.error.message || "Failed to update profile";
       });
   }
 })
 
-export const { updateProfileData, clearProfile } = ProfileSlice.actions
+export const { clearProfile } = ProfileSlice.actions
 export default ProfileSlice.reducer

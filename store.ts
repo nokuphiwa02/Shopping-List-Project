@@ -1,14 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 import registerReducer  from './src/redux/features/RegisterSlice'
-import loginReducer from './src/redux/features/LoginSlices'
+import signInReducer from './src/redux/features/LoginSlices'
 import listReducer from './src/redux/features/ShoppingListSlice'
 import profileReducer from './src/redux/features/ProfileSlices'
 import itemsReducer from './src/redux/features/ShoppingItemSlices'
 
+
 export const store = configureStore({
   reducer: { 
     signUp: registerReducer,
-    signIn: loginReducer,
+    signIn: signInReducer,
     addCategory: listReducer,
     profile: profileReducer,
     addItem: itemsReducer,

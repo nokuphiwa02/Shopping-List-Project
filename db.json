@@ -62,6 +62,24 @@
       "contact": "7887",
       "confirmPassword": "Phiwa",
       "id": "Rjz92Coy5Ls"
+    },
+    {
+      "name": "Mike",
+      "surname": "Phoswa",
+      "email": "mikephoswa@gmail.com",
+      "password": "Mike",
+      "contact": "083567885",
+      "confirmPassword": "Mike",
+      "id": "CMK1tS1jd9U"
+    },
+    {
+      "name": "Phiwa",
+      "surname": "Shange",
+      "email": "Shange24@gmail.com",
+      "password": "Shange@24",
+      "contact": "0812345678",
+      "confirmPassword": "Shange@24",
+      "id": "FdyKxWErJ6U"
     }
   ],
   "list": [
@@ -76,6 +94,56 @@
     {
       "category": "Nokuphiwa",
       "id": "_l9BH_xaJew"
+    },
+    {
+      "userId": " ",
+      "category": "Scelo Shopping List",
+      "id": "tbEDVhrAiYY"
+    },
+    {
+      "userId": "xyoDoR6RUG4",
+      "category": "",
+      "id": "4UG38o8Am5Y"
+    },
+    {
+      "userId": " ",
+      "category": "HHHH",
+      "id": "hRI_m1gMBW0"
+    },
+    {
+      "userId": " ",
+      "category": "hjhvhj",
+      "id": "6M65K7XhVM4"
+    },
+    {
+      "userId": " ",
+      "category": "fguuy",
+      "id": "KenK6cMWWRM"
+    },
+    {
+      "userId": " ",
+      "category": "New One",
+      "id": "lplc_Am6lLo"
+    },
+    {
+      "userId": "xyoDoR6RUG4",
+      "category": "New One",
+      "id": "0La-Maz_r4E"
+    },
+    {
+      "userId": "xyoDoR6RUG4",
+      "category": "New One",
+      "id": "zYy6U3xRwqo"
+    },
+    {
+      "userId": "CMK1tS1jd9U",
+      "category": "shopping list2",
+      "id": "bNobnWDlAWw"
+    },
+    {
+      "userId": "OML4mh6vQ4s",
+      "category": "grocery",
+      "id": "aBjqh7EI0TQ"
     }
   ],
   "items": [
@@ -102,6 +170,12 @@
       "quantity": 0,
       "optionalNote": "",
       "id": "9Ap2JPRq1IA"
+    },
+    {
+      "name": "",
+      "quantity": 0,
+      "optionalNote": "",
+      "id": "4VxX3qmudBw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

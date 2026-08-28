@@ -11,7 +11,13 @@ export const ShoppingForm = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { category } = useSelector((state: RootState) => state.addCategory);
 
-  const user = useSelector((state: RootState) => state.signIn.currentUser);
+  
+  let user = useSelector((state: RootState) => state.signIn.currentUser);
+
+  if (!user){
+    user = JSON.parse(localStorage.getItem("user")!) 
+  }
+
 
   const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

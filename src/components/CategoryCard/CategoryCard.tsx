@@ -15,7 +15,6 @@ export const CategoryCard = ({ category, onDelete, onUpdate}: CategoryCardProps)
   navigate("/ShoppingItemPage")
  }
 
-  
 
 
   return (

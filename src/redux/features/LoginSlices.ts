@@ -3,14 +3,8 @@ import { type PayloadAction } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { type User } from "./RegisterSlice";
 
-export interface loggedInUser {
+interface LoginState {
   currentUser: User | null;
-  // id?:number,
-  // email: string;
-  // password: string;
-}
-
-interface LoginState extends loggedInUser {
   isLoading: boolean;
   error: string | null;
   isAuthenticated: boolean;
@@ -53,6 +47,7 @@ export const LoginThunk = createAsyncThunk(
         return rejectWithValue("Invalid email or password.");
       }
 
+      localStorage.setItem("user",JSON.stringify(user))
       return user;
     } catch (error) {
       const errorMessage =
@@ -82,8 +77,10 @@ export const LoginSlice = createSlice({
       state.isLoading = true;
       state.error = null;
     });
-    builder.addCase(LoginThunk.fulfilled, (state) => {
+    builder.addCase(LoginThunk.fulfilled, (state, action) => {
       state.isLoading = false;
+      state.isAuthenticated = true;
+      state.currentUser = action.payload;
     });
     builder.addCase(LoginThunk.rejected, (state, action) => {
       state.isLoading = false;
@@ -92,6 +89,6 @@ export const LoginSlice = createSlice({
   },
 });
 
-export const { updateEmailAddress, updatePassword } = LoginSlice.actions;
+export const {updateEmailAddress,updatePassword} = LoginSlice.actions;
 
 export default LoginSlice.reducer;
