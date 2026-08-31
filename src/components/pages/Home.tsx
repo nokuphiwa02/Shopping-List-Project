@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import styles from "./Home.module.css";
 import { Navbar } from "../Navbar/Navbar";
 import SearchBar from "../Searchbar/Searchbar";
@@ -11,7 +11,7 @@ import {
   deleteList,
   setEditingList,
 } from "../../redux/features/ShoppingListSlice";
-import type{ AppDispatch } from "../../../store";
+import type { AppDispatch } from "../../../store";
 
 export const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -34,17 +34,14 @@ export const Home = () => {
 
   return (
     <div className={styles.HomeContainer}>
-      
       <div>
-       
         <Navbar />
-       
+
         <SearchBar onSearch={() => {}} />
-       
+
         <ShoppingForm />
-      
+
         <div className={styles.cardsContainer}>
-         
           {lists.length === 0 ? (
             <p>No shopping lists found. Create one above!</p>
           ) : (
@@ -62,11 +59,8 @@ export const Home = () => {
               />
             ))
           )}
-         
         </div>
-       
       </div>
-     
     </div>
   );
 };
