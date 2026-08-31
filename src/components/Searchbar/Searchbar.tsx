@@ -2,10 +2,11 @@ import styles from "./Searchbar.module.css";
 import React from "react";
 
 type SearchProps = {
-  onSearch: (text: string) => void;
+  value: string,
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const SearchBar: React.FC<SearchProps> = ({ onSearch }) => {
+const SearchBar: React.FC<SearchProps> = ({onChange, value }) => {
   return (
     <div className={styles.searchContainer}>
       <button className={styles.filterBtn}>filter</button>
@@ -16,7 +17,8 @@ const SearchBar: React.FC<SearchProps> = ({ onSearch }) => {
           type="text"
           placeholder="Search..."
           className={styles.searchInput}
-          onChange={(e) => onSearch(e.target.value)}
+          value={value}
+          onChange={onChange}
         />
         
       </div>

@@ -1,0 +1,24 @@
+.landingPageContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: grey;
+  color: white;
+}
+
+/* .LandingPage{
+display:flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+} */
+
+.bskt{
+    width: 260px;
+    height: 230px;
+}
+
+.lgnBtn{
+
+}
