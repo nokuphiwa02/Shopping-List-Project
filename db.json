@@ -80,6 +80,15 @@
       "contact": "0812345678",
       "confirmPassword": "Shange@24",
       "id": "FdyKxWErJ6U"
+    },
+    {
+      "name": "Phiwa",
+      "surname": "shange",
+      "email": "mashange11@gmail.com",
+      "password": "67890",
+      "contact": "0785626970",
+      "confirmPassword": "67890",
+      "id": "BBKo2QXG6V8"
     }
   ],
   "list": [
@@ -144,6 +153,11 @@
       "userId": "OML4mh6vQ4s",
       "category": "grocery",
       "id": "aBjqh7EI0TQ"
+    },
+    {
+      "id": "FKGOA4z4Bq8",
+      "userId": "BBKo2QXG6V8",
+      "category": "groceries"
     }
   ],
   "items": [

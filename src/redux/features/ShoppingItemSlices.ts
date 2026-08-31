@@ -1,16 +1,20 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { createSlice } from "@reduxjs/toolkit";
 
 export interface Items {
   id?: string;
+  userId: string;
   name: string;
   quantity: number;
   optionalNote: string;
 }
 
-interface itemsState extends Items {
+interface itemsState {
   items: Items[];
+  name: string;
+  quantity: number;
+  optionalNote: string;
+  editingItemId: string | null;
   isLoading: boolean;
   error: string | null;
 }
@@ -20,46 +24,46 @@ const initialState: itemsState = {
   name: "",
   quantity: 0,
   optionalNote: "",
+  editingItemId: null,
   isLoading: false,
   error: null,
 };
 
 export const ItemsThunk = createAsyncThunk(
   "Items/ItemsThunk",
-  async (newItem: Omit<Items, "id">) => {
-    const response = await fetch("http://localhost:3000/items", {
-      method: "POST",
-      headers: {
-        "content-Type": "application/json",
-      },
-      body: JSON.stringify(newItem),
-    });
+  async (newItem: Items, { rejectWithValue }) => {
+    try {
+      const response = await fetch("http://localhost:3000/items", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newItem),
+      });
 
-    if (!response.ok) {
-      throw new Error("failed to add item");
+      if (!response.ok) throw new Error("Failed to add item");
+      return (await response.json()) as Items;
+    } catch (error) {
+      return rejectWithValue((error as Error).message);
     }
-    const data = await response.json();
-    console.log(data)
-    return data;
   },
 );
 
 export const getItemsThunk = createAsyncThunk(
   "Items/getItemsThunk",
-  async () => {
-    const response = await fetch("http://localhost:3000/items", {
-      method: "GET",
-      headers: {
-        "content-Type": "application/json",
-      },
-    });
+  async (userId: string, { rejectWithValue }) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/items?userId=${userId}`,
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        },
+      );
 
-    if (!response.ok) {
-      throw new Error("failed to add item");
+      if (!response.ok) throw new Error("Failed to fetch items");
+      return (await response.json()) as Items[];
+    } catch (error) {
+      return rejectWithValue((error as Error).message);
     }
-    const data = await response.json();
-    console.log(data)
-    return data;
   },
 );
 
@@ -69,15 +73,10 @@ export const deleteItemThunk = createAsyncThunk(
     try {
       const response = await fetch(`http://localhost:3000/items/${id}`, {
         method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to delete item from the list");
-      }
-
+      if (!response.ok) throw new Error("Failed to delete item from the list");
       return id;
     } catch (error) {
       return rejectWithValue((error as Error).message);
@@ -85,7 +84,26 @@ export const deleteItemThunk = createAsyncThunk(
   },
 );
 
+export const updateItemThunk = createAsyncThunk(
+  "Items/updateItemThunk",
+  async (updatedItem: Items, { rejectWithValue }) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/items/${updatedItem.id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedItem),
+        },
+      );
 
+      if (!response.ok) throw new Error("Failed to update item");
+      return (await response.json()) as Items;
+    } catch (error) {
+      return rejectWithValue((error as Error).message);
+    }
+  },
+);
 
 export const ItemSlice = createSlice({
   name: "addItem",
@@ -99,46 +117,83 @@ export const ItemSlice = createSlice({
     },
     addOptionalnote: (state, action: PayloadAction<string>) => {
       state.optionalNote = action.payload;
-      
     },
-    addItem: (state, action: PayloadAction<Items>) => {
-      state.items.push(action.payload)
-    }
+    setEditingItem: (state, action: PayloadAction<Items>) => {
+      state.editingItemId = action.payload.id || null;
+      state.name = action.payload.name;
+      state.quantity = action.payload.quantity;
+      state.optionalNote = action.payload.optionalNote;
+    },
+    clearEditingItem: (state) => {
+      state.editingItemId = null;
+      state.name = "";
+      state.quantity = 0;
+      state.optionalNote = "";
+    },
   },
   extraReducers: (builder) => {
-    builder.addCase(ItemsThunk.pending, (state) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-    builder.addCase(ItemsThunk.fulfilled, (state) => {
-      state.isLoading = false;
-    });
-    builder.addCase(ItemsThunk.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload as string;
-    });
-    builder.addCase(getItemsThunk.fulfilled, (state, action) => {
-      state.isLoading = false
-      state.items = action.payload; 
-    });
-    builder.addCase(deleteItemThunk.pending, (state) => {
+    builder
+
+      .addCase(ItemsThunk.pending, (state) => {
         state.isLoading = true;
         state.error = null;
-      });
-    builder.addCase(deleteItemThunk.fulfilled, (state, action) => {
+      })
+      .addCase(ItemsThunk.fulfilled, (state, action: PayloadAction<Items>) => {
         state.isLoading = false;
-        state.items = state.items.filter((items) => items.id !== action.payload);
-      });
-  
-    builder.addCase(deleteItemThunk.rejected, (state, action) => {
+        state.items.push(action.payload);
+        state.name = "";
+        state.quantity = 0;
+        state.optionalNote = "";
+      })
+      .addCase(ItemsThunk.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = (action.payload as string) || "Failed to delete item";
+        state.error = action.payload as string;
+      })
+
+      .addCase(
+        getItemsThunk.fulfilled,
+        (state, action: PayloadAction<Items[]>) => {
+          state.items = action.payload;
+        },
+      )
+
+      .addCase(
+        deleteItemThunk.fulfilled,
+        (state, action: PayloadAction<string>) => {
+          state.items = state.items.filter(
+            (item) => item.id !== action.payload,
+          );
+        },
+      )
+
+      .addCase(updateItemThunk.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        updateItemThunk.fulfilled,
+        (state, action: PayloadAction<Items>) => {
+          state.isLoading = false;
+          state.items = state.items.map((item) =>
+            item.id === action.payload.id ? action.payload : item,
+          );
+          state.editingItemId = null;
+          state.name = "";
+          state.quantity = 0;
+          state.optionalNote = "";
+        },
+      )
+      .addCase(updateItemThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
       });
-
-
   },
 });
 
-export const { addName, addQuantity, addOptionalnote ,addItem} = ItemSlice.actions;
-
+export const {
+  addName,
+  addQuantity,
+  addOptionalnote,
+  setEditingItem,
+  clearEditingItem,
+} = ItemSlice.actions;
 export default ItemSlice.reducer;

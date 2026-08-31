@@ -7,57 +7,55 @@ export interface List {
   category: string;
 }
 
-interface ListState extends List {
+interface ListState {
   lists: List[];
+  category: string;
+  editingListId: string | null;
   isLoading: boolean;
   error: string | null;
 }
 
 const initialState: ListState = {
   lists: [],
-  userId: "",
   category: "",
+  editingListId: null,
   isLoading: false,
   error: null,
 };
 
 export const createList = createAsyncThunk(
   "List/ListThunk",
-  async (newList: Omit<List, "id">) => {
-    const response = await fetch("http://localhost:3000/list", {
-      method: "POST",
-      headers: {
-        "content-Type": "application/json",
-      },
-      body: JSON.stringify(newList),
-    });
-    if (!response.ok) {
-      throw new Error("failed to add list");
+  async (newList: Omit<List, "id">, { rejectWithValue }) => {
+    try {
+      const response = await fetch("http://localhost:3000/list", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newList),
+      });
+      if (!response.ok) throw new Error("Failed to add list");
+      return (await response.json()) as List;
+    } catch (error) {
+      return rejectWithValue((error as Error).message);
     }
-    const data = await response.json();
-    return data;
   },
 );
 
 export const getList = createAsyncThunk(
   "List/getListThunk",
-  async (userId: string) => {
-    const response = await fetch(
-      `http://localhost:3000/list?userId=${userId}`,
-      {
-        method: "GET",
-        headers: {
-          "content-Type": "application/json",
+  async (userId: string, { rejectWithValue }) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/list?userId=${userId}`,
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
         },
-       },
       );
-
-    if (!response.ok) {
-      throw new Error("failed to add list");
+      if (!response.ok) throw new Error("Failed to fetch list");
+      return (await response.json()) as List[];
+    } catch (error) {
+      return rejectWithValue((error as Error).message);
     }
-    const data = await response.json();
-    console.log(data);
-    return data;
   },
 );
 
@@ -67,45 +65,35 @@ export const deleteList = createAsyncThunk(
     try {
       const response = await fetch(`http://localhost:3000/list/${id}`, {
         method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
       });
-
-      if (!response.ok) {
-        throw new Error("Failed to delete item from the list");
-      }
-
+      if (!response.ok) throw new Error("Failed to delete item from the list");
       return id;
     } catch (error) {
       return rejectWithValue((error as Error).message);
     }
   },
 );
+
 export const updateList = createAsyncThunk(
   "List/updateList",
   async (updatedList: List, { rejectWithValue }) => {
     try {
-      const response = await fetch(`http://localhost:3000/list/${updatedList.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `http://localhost:3000/list/${updatedList.id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedList),
         },
-        body: JSON.stringify(updatedList),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to update item from the list");
-      }
-
-      const data = await response.json();
-      return data as List;
+      );
+      if (!response.ok) throw new Error("Failed to update item");
+      return (await response.json()) as List;
     } catch (error) {
       return rejectWithValue((error as Error).message);
     }
   },
 );
-
 
 export const ListSlice = createSlice({
   name: "addCategory",
@@ -114,61 +102,55 @@ export const ListSlice = createSlice({
     addCategory: (state, action: PayloadAction<string>) => {
       state.category = action.payload;
     },
+
+    setEditingList: (state, action: PayloadAction<List>) => {
+      state.editingListId = action.payload.id || null;
+      state.category = action.payload.category;
+    },
+    clearEditingMode: (state) => {
+      state.editingListId = null;
+      state.category = "";
+    },
   },
   extraReducers: (builder) => {
-    builder.addCase(createList.pending, (state) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-    builder.addCase(
-      createList.fulfilled,
-      (state, action: PayloadAction<List>) => {
-        state.isLoading = false;
-        state.lists = [...state.lists, action.payload];
-      },
-    );
+    builder
 
-    builder.addCase(createList.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload as string;
-    });
-
-    builder.addCase(getList.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.lists = action.payload;
-    });
-    builder.addCase(deleteList.pending, (state) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-    builder.addCase(deleteList.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.lists = state.lists.filter((list) => list.id !== action.payload);
-    });
-
-    builder.addCase(deleteList.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = (action.payload as string) || "Failed to delete list";
-    });
-    builder.addCase(updateList.pending, (state) => {
+      .addCase(createList.pending, (state) => {
         state.isLoading = true;
-        state.error = null;
-      });
-      builder.addCase(updateList.fulfilled,(state, action: PayloadAction<List>) => {
-          state.isLoading = false;
-          state.lists = state.lists.map((list) =>
-            list.id === action.payload.id ? action.payload : list
-          );
-        },
-      );
-      builder.addCase(updateList.rejected, (state, action) => {
+      })
+      .addCase(createList.fulfilled, (state, action: PayloadAction<List>) => {
         state.isLoading = false;
-        state.error = (action.payload as string) || "Failed to update list";
-    });
+        state.lists.push(action.payload);
+        state.category = "";
+      })
+
+      .addCase(getList.fulfilled, (state, action: PayloadAction<List[]>) => {
+        state.lists = action.payload;
+      })
+
+      .addCase(deleteList.fulfilled, (state, action: PayloadAction<string>) => {
+        state.isLoading = false;
+        state.lists = state.lists.filter((item) => item.id !== action.payload);
+      })
+
+      .addCase(updateList.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateList.fulfilled, (state, action: PayloadAction<List>) => {
+        state.isLoading = false;
+        state.lists = state.lists.map((item) =>
+          item.id === action.payload.id ? action.payload : item,
+        );
+        state.editingListId = null;
+        state.category = "";
+      })
+      .addCase(updateList.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      });
   },
 });
 
-
-export const { addCategory } = ListSlice.actions;
-
+export const { addCategory, setEditingList, clearEditingMode } =
+  ListSlice.actions;
 export default ListSlice.reducer;

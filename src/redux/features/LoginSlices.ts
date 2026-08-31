@@ -1,10 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { type PayloadAction } from "@reduxjs/toolkit";
-import { createAsyncThunk } from "@reduxjs/toolkit";
 import { type User } from "./RegisterSlice";
 
 interface LoginState {
   currentUser: User | null;
+  emailInput: string;
+  passwordInput: string;
   isLoading: boolean;
   error: string | null;
   isAuthenticated: boolean;
@@ -12,6 +13,8 @@ interface LoginState {
 
 const initialState: LoginState = {
   currentUser: null,
+  emailInput: "",
+  passwordInput: "",
   isLoading: false,
   error: null,
   isAuthenticated: false,
@@ -25,19 +28,14 @@ export const LoginThunk = createAsyncThunk(
   ) => {
     try {
       const response = await fetch(
-        // `http://localhost:3000/users?email=${encodeURIComponent(login.email)}&password=${encodeURIComponent(login.password)}`,
-        `http://localhost:3000/users?email=${login.email}&password=${login.password}`,
+        `http://localhost:3000/users?email=${login.email}`,
         {
           method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
         },
       );
 
-      if (!response.ok) {
-        throw new Error("Failed to connect to the server");
-      }
+      if (!response.ok) throw new Error("Failed to connect to the server");
 
       const users: User[] = await response.json();
 
@@ -47,48 +45,51 @@ export const LoginThunk = createAsyncThunk(
         return rejectWithValue("Invalid email or password.");
       }
 
-      localStorage.setItem("user",JSON.stringify(user))
+      localStorage.setItem("user", JSON.stringify(user));
       return user;
     } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "An unknown error occurred";
-      return rejectWithValue(errorMessage);
+      return rejectWithValue(
+        error instanceof Error ? error.message : "An unknown error occurred",
+      );
     }
   },
 );
 
 export const LoginSlice = createSlice({
-  name: "login",
+  name: "signIn",
   initialState,
   reducers: {
     updateEmailAddress: (state, action: PayloadAction<string>) => {
-      if (state.currentUser) {
-        state.currentUser.email = action.payload;
-      }
+      state.emailInput = action.payload;
     },
     updatePassword: (state, action: PayloadAction<string>) => {
-      if (state.currentUser) {
-        state.currentUser.password = action.payload;
-      }
+      state.passwordInput = action.payload;
+    },
+    clearLoginInputs: (state) => {
+      state.emailInput = "";
+      state.passwordInput = "";
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(LoginThunk.pending, (state) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-    builder.addCase(LoginThunk.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.isAuthenticated = true;
-      state.currentUser = action.payload;
-    });
-    builder.addCase(LoginThunk.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload as string;
-    });
+    builder
+      .addCase(LoginThunk.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(LoginThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isAuthenticated = true;
+        state.currentUser = action.payload;
+        state.emailInput = "";
+        state.passwordInput = "";
+      })
+      .addCase(LoginThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      });
   },
 });
 
-export const {updateEmailAddress,updatePassword} = LoginSlice.actions;
-
+export const { updateEmailAddress, updatePassword, clearLoginInputs } =
+  LoginSlice.actions;
 export default LoginSlice.reducer;
