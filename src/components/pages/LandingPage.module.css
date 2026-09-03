@@ -1,8 +1,8 @@
 .landingPageContainer{
-    height: 100vh;
-    background-color: grey;
-    color: white;
-    display: flex;
+height: 100vh;
+background-color: grey;
+color: white;
+display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
