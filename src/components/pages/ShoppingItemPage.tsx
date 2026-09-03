@@ -12,9 +12,9 @@ export const ShoppingItemsPage = () => {
 
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
+    useEffect(() => {
     dispatch(getItemsThunk(''));
-  }, [dispatch]);
+  },[dispatch]);
 
   const items = useSelector((state: RootState) => state.addItem.items);
 

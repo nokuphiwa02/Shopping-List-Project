@@ -59,7 +59,7 @@ export const Profile = () => {
   const handleLogOut = () => {
     localStorage.removeItem('user');
     dispatch(clearProfile());
-    navigate('/login');
+    navigate('/');
   };
 
   const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {

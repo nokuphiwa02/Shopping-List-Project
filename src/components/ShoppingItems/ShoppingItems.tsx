@@ -20,15 +20,8 @@ export const ShoppingItems = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
-  const {
-    name,
-    quantity,
-    optionalNote,
-    items,
-    editingItemId,
-    isLoading,
-    error,
-  } = useSelector((state: RootState) => state.addItem);
+  const {name,quantity,optionalNote,items,editingItemId,isLoading,error,}
+   = useSelector((state: RootState) => state.addItem);
 
   let user = useSelector((state: RootState) => state.signIn?.currentUser);
   if (!user) {

@@ -1,68 +1,78 @@
 .loginContainer {
-  width: 100vw;
-  height: 100vh;
-  background-color: #212121;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .loginCard {
-  width: 80%;
-  height: 70%;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  border: solid grey;
-  border-radius: 20px;
-  align-items: center;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    border: solid grey;
+    border-radius: 20px;
+    align-items: center;
 }
 
 .tittle {
-  color: white;
-  font-weight: bolder;
+    color: white;
+    font-weight: bolder;
 }
 
 .email {
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-  color: #808080;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    color: #808080;
 }
 
 .password {
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-  color: #808080;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    color: #808080;
 }
 
 .emailInput {
-  width: 250px;
-  height: 30px;
-  border-radius: 10px;
+    width: 250px;
+    height: 30px;
+    border-radius: 10px;
 }
 
 .passwordInput {
-  width: 250px;
-  height: 30px;
-  border-radius: 10px;
+    width: 250px;
+    height: 30px;
+    border-radius: 10px;
 }
 
 .loginBtn {
-  width: 100px;
-  height: 30px;
-  border-radius: 7px;
-  color: white;
-  background-color: rgb(180, 48, 76);
+    width: 170px;
+    height: 40px;
+    border-radius: 8px;
+    display: block;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(180, 48, 76);
 }
 
 .registerBtn {
-  width: 100px;
-  height: 30px;
-  border-radius: 7px;
-  color: white;
-  background-color: #808080;
+  width: 170px;
+  height: 40px;
+    border-radius: 8px;
+    display: block;
+    cursor: pointer;
+    color: white;
+    background-color: #808080;
 }
 .account {
-  color: white;
+    color: white;
+}
+
+.account {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
 }
