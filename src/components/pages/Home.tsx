@@ -49,6 +49,9 @@ export const Home = () => {
   }, [dispatch, userId]);
 
   const lists = useSelector((state: RootState) => state.addCategory.lists);
+  const filteredLists = lists.filter((list) =>
+    list.category.toLowerCase().includes(searchInput.toLowerCase()),
+  );
 
   return (
     <div className={styles.HomeContainer}>
@@ -57,10 +60,10 @@ export const Home = () => {
         <SearchBar value={searchInput} onChange={handleSearhChange} />
         <ShoppingForm />
         <div className={styles.cardsContainer}>
-          {lists.length === 0 ? (
+          {filteredLists.length === 0 ? (
             <p>No shopping lists found. Create one above!</p>
           ) : (
-            lists.map((item) => (
+            filteredLists.map((item) => (
               <CategoryCard
                 key={item.id}
                 category={item}
