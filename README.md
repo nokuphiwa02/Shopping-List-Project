@@ -1,75 +1,82 @@
-# React + TypeScript + Vite
+<img src="https://socialify.git.ci/nokuphiwa02/Shopping-List-Project/image?
+  language=1&owner=1&name=1&stargazers=1&theme=Light"
+  alt="Shopping-List-Project" width="640" height="320" />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🛒 Smart Shopping List
+A fast and responsive web application built to help users manage their grocery and shopping lists. This front-end application uses React and Redux Toolkit for efficient, predictable state management.
 
-Currently, two official plugins are available:
+## 🚀 Quick Start
+To run this project on your computer you need to follow these simple 
+## steps:
+1. Clone the repository 
+bashgit clone https://github.com
+2. Install dependenciesbashnpm install (npm install)
+3. Start the development serverbashnpm start and run it in your terminal (npm run dev)
+The app should automatically open in your browser at http://localhost:3000.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Features
+-Add Items: Quick input to add new items to your shopping list.
+-Toggle Status: Mark items as "bought" or "pending" with a single click.
+-Remove Items: Delete items instantly from the list.
+-Clear All: Reset button to wipe the entire list clean.
+-Filters: View all items, only bought items, or only pending items.
+-Total Counter: Live tracking of total items and remaining items.
 
-## React Compiler
+## 🏗️ Tech Stack
+ -Redux Toolkit 
+ -CSS  
+ -Vite
+ -Git
+ -GitHub
+ -TypeScript
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📂 Project Structure
 
-## Expanding the ESLint configuration
+Here is a look at how the Redux files and components are organized:textsrc/
+├── app/
+│   └── store.ts         
+├── redux/
+│   └── features/
+│       └── RegisterSlice.ts
+        └── LoginSlice.ts
+        └── ProfileSlice.ts
+        └── ShoppingListSlice.ts
+        └── ShoppingItemSlice.ts
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+├── src/
+│   ├── components   
+        └── Navbar
+        └── SearchBar
+        └── Pages
+             └── registerpage
+             └── ProfilePage
+             └── loginPage
+             └── HomePage
+             └── LandingPage
+             └── ShoppingItemPage
+        └── ShoppingListForm
+        └── ShoppingItemForm
+        └── categoryCard
+        └── ItemCard
+        └── LoginForm
+        └── types     
+├── App.tsx               
+└── index.html             
+Use code with caution.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🧠 Redux State Architecture
+-This app uses Redux Toolkit to handle data flow cleanly without messy boilerplate code.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## The Store
+(src/app/store.js)Combines all slices and provides the global state to the React application.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## The Slice 
+(src//redux/features/shoppingList/shoppingSlice.js)Manages the shopping list state using the following core actions:
+-addItem: Pushes a new item object into the state array.
+-toggleItem: Finds an item by ID and flips its completed boolean status.
+-removeItem: Filters out an item by its ID.clearList: Resets the items array back to empty.
 
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+## Website
+-https://github.com/nokuphiwa02/Shopping-List-Project
+-https://shopping-list-project-ten.vercel.app/
+https://www.figma.com/design/YGMcKRCqpgNHHwE3K5mgDV/Untitled?node-id=0-1&p=f&t=erJZYfWKMY0CjPyG-0
