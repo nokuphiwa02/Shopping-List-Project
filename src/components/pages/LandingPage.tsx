@@ -15,10 +15,10 @@ function LandingPage() {
         
         <img
           src={shoppingImage}
-          alt="Shopping List"
+          alt="Shopping List" 
           className={styles.landingImage}
         />
-        <h2>Welcome to Shopping List</h2>
+        <h2 className={styles.landingTitle}>Welcome to Shopping List</h2>
         
         <p>Organize your shopping experience with our easy-to-use app.</p>
         <button onClick={navigateToLogin}>Start Shopping</button>

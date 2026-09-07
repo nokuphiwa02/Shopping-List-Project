@@ -8,13 +8,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteItemThunk } from "../../redux/features/ShoppingItemSlices";
 
 export const ShoppingItemsPage = () => {
-  const useAppDispatch = () => useDispatch <AppDispatch>();
+  const useAppDispatch = () => useDispatch<AppDispatch>();
 
   const dispatch = useAppDispatch();
 
-    useEffect(() => {
-    dispatch(getItemsThunk(''));
-  },[dispatch]);
+  let user = useSelector((state: RootState) => state.signIn?.currentUser);
+  if (!user) {
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) user = JSON.parse(savedUser);
+  }
+
+  const userId = user?.id ? String(user.id) : "";
+
+  useEffect(() => {
+    if (userId.trim() !== "") {
+      dispatch(getItemsThunk(userId));
+    }
+  }, [dispatch, userId]);
 
   const items = useSelector((state: RootState) => state.addItem.items);
 

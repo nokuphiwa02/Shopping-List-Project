@@ -60,7 +60,7 @@ export const ShoppingForm = () => {
         
         <div className={styles.btns}>
           
-          <button className={styles.addBtn} type="submit" disabled={isLoading}>
+          <button type="submit" disabled={isLoading}>
             {editingListId ? " Update List" : " Add Button"}
             
           </button>

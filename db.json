@@ -89,6 +89,24 @@
       "contact": "0785626970",
       "confirmPassword": "67890",
       "id": "BBKo2QXG6V8"
+    },
+    {
+      "name": "Nokuh",
+      "surname": "Shange",
+      "email": "noku071@gmail.com",
+      "password": "noku071",
+      "contact": "0712933355",
+      "confirmPassword": "noku071",
+      "id": "-fItQbpsfkE"
+    },
+    {
+      "name": "fabian",
+      "surname": "blose",
+      "email": "fab21@gmail.com",
+      "password": "ffab@21",
+      "contact": "098746534",
+      "confirmPassword": "fab@21",
+      "id": "srRUQG8oDP8"
     }
   ],
   "list": [
@@ -145,9 +163,9 @@
       "id": "zYy6U3xRwqo"
     },
     {
+      "id": "bNobnWDlAWw",
       "userId": "CMK1tS1jd9U",
-      "category": "shopping list2",
-      "id": "bNobnWDlAWw"
+      "category": "shopping List2"
     },
     {
       "userId": "OML4mh6vQ4s",
@@ -163,6 +181,41 @@
       "userId": "CMK1tS1jd9U",
       "category": "alcohol",
       "id": "e2kmN3dVKmA"
+    },
+    {
+      "userId": "-fItQbpsfkE",
+      "category": "baby shower list",
+      "id": "tdXaoFd-U9U"
+    },
+    {
+      "userId": "-fItQbpsfkE",
+      "category": "home tools",
+      "id": "zxFEgHt63tY"
+    },
+    {
+      "userId": " ",
+      "category": "erfy",
+      "id": "QWDS5CgBuCc"
+    },
+    {
+      "userId": " ",
+      "category": "rte3765737",
+      "id": "PYjgAMuINTo"
+    },
+    {
+      "userId": " ",
+      "category": "wea3t3t",
+      "id": "Q6rv3Z1CZV8"
+    },
+    {
+      "userId": "srRUQG8oDP8",
+      "category": "rswehgaer5y",
+      "id": "JdiXWWn6ahs"
+    },
+    {
+      "userId": "BBKo2QXG6V8",
+      "category": "456u65",
+      "id": "ssfoDFUKCyE"
     }
   ],
   "items": [
@@ -195,6 +248,48 @@
       "quantity": 0,
       "optionalNote": "",
       "id": "4VxX3qmudBw"
+    },
+    {
+      "userId": "CMK1tS1jd9U",
+      "name": "cakes",
+      "quantity": 2,
+      "optionalNote": "P n P",
+      "id": "OGNTlNS9JMY"
+    },
+    {
+      "id": "RMT5FRldO9U",
+      "userId": "CMK1tS1jd9U",
+      "name": "87YR",
+      "quantity": 8,
+      "optionalNote": "6T7I"
+    },
+    {
+      "userId": "CMK1tS1jd9U",
+      "name": "00UIJL",
+      "quantity": 7,
+      "optionalNote": "UHUKY GYU",
+      "id": "LZrSDdOVlxI"
+    },
+    {
+      "userId": "CMK1tS1jd9U",
+      "name": "SWWRFR",
+      "quantity": 3,
+      "optionalNote": "QWE",
+      "id": "WY6du4hfiZM"
+    },
+    {
+      "userId": "-fItQbpsfkE",
+      "name": " baby clothes",
+      "quantity": 3,
+      "optionalNote": "pep",
+      "id": "yFvCZiiV-D4"
+    },
+    {
+      "userId": "-fItQbpsfkE",
+      "name": "r5eag",
+      "quantity": 3,
+      "optionalNote": "werf",
+      "id": "xvWlEeXjwEg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

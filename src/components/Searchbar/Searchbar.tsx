@@ -9,7 +9,7 @@ type SearchProps = {
 const SearchBar: React.FC<SearchProps> = ({onChange, value }) => {
   return (
     <div className={styles.searchContainer}>
-      <button className={styles.filterBtn}>filter</button>
+    
       
       <div className={styles.searchBar}>
         
