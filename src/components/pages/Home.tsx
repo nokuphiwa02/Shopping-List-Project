@@ -6,11 +6,7 @@ import { ShoppingForm } from "../shoppingForm/shoppingForm";
 import { CategoryCard } from "../CategoryCard/CategoryCard";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../../store";
-import {
-  getList,
-  deleteList,
-  setEditingList,
-} from "../../redux/features/ShoppingListSlice";
+import {getList,deleteList, setEditingList} from "../../redux/features/ShoppingListSlice";
 import type { AppDispatch } from "../../../store";
 import { useLocation, useNavigate } from "react-router";
 
@@ -23,7 +19,7 @@ export const Home = () => {
   const searchInput = queryParams.get("search") || "";
 
   const handleSearhChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
+  const val = e.target.value;
 
     const params = new URLSearchParams(location.search);
     if (val) {

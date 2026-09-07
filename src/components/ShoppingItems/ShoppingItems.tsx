@@ -15,10 +15,18 @@ import {
   updateItemThunk,
 } from "../../redux/features/ShoppingItemSlices";
 import type { AppDispatch } from "../../../store";
+import SearchBar from "../Searchbar/Searchbar";
+
 
 export const ShoppingItems = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
+
+  const [searchValue, setSearchValue] = React.useState("");
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
+  };
 
   const {name,quantity,optionalNote,items,editingItemId,isLoading,error,}
    = useSelector((state: RootState) => state.addItem);
@@ -64,9 +72,12 @@ export const ShoppingItems = () => {
     <div className={styles.itemWrapper}>
       
       <form onSubmit={handleSave} className={styles.itemContainer}>
-        
+       
         <div className={styles.itemContent}>
           <h1>Shopping Items</h1>
+          <div className={styles.searchBar}>
+           <SearchBar value={searchValue} onChange={handleSearchChange} />
+           </div>
           {error && <p className={styles.errorField}>{error}</p>}
           
           <div>

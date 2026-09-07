@@ -7,6 +7,7 @@ import type { AppDispatch, RootState } from "../../../store";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteItemThunk } from "../../redux/features/ShoppingItemSlices";
 
+
 export const ShoppingItemsPage = () => {
   const useAppDispatch = () => useDispatch<AppDispatch>();
 
@@ -27,12 +28,15 @@ export const ShoppingItemsPage = () => {
   }, [dispatch, userId]);
 
   const items = useSelector((state: RootState) => state.addItem.items);
+  const filteredItems = items.filter((item) =>
+    item.name.toLowerCase().includes(""),
+  );
 
   return (
     <div className={styles.itemPgsContainer}>
       <ShoppingItems />
 
-      {items.map((item) => (
+      {filteredItems.map((item) => (
         <ItemCard
           key={item.id}
           items={item}
