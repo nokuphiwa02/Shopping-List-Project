@@ -31,7 +31,7 @@ export const CategoryCard = ({
         <button onClick={onDelete} className={styles.deleteBtn}>
           Delete
         </button>
-        <button onClick={onUpdate} className={styles.deleteBtn}>
+        <button onClick={onUpdate} className={styles.UPdateBtn}>
           Update
         </button>
       </div>
