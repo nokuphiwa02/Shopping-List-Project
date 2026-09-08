@@ -3,32 +3,32 @@ import styles from "./ShoppingItems.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../../store";
 import { useNavigate } from "react-router";
-import { ItemCard } from "../ItemCard/ItemCard";
+// import { ItemCard } from "../ItemCard/ItemCard";
 import {
   addName,
   addQuantity,
   addOptionalnote,
   ItemsThunk,
   getItemsThunk,
-  deleteItemThunk,
-  setEditingItem,
+  // deleteItemThunk,
+  // setEditingItem,
   updateItemThunk,
 } from "../../redux/features/ShoppingItemSlices";
 import type { AppDispatch } from "../../../store";
-import SearchBar from "../Searchbar/Searchbar";
+// import SearchBar from "../Searchbar/Searchbar";
 
 
 export const ShoppingItems = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
-  const [searchValue, setSearchValue] = React.useState("");
+  // const [searchValue, setSearchValue] = React.useState("");
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
-  };
+  // const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setSearchValue(e.target.value);
+  // };
 
-  const {name,quantity,optionalNote,items,editingItemId,isLoading,error,}
+  const {name,quantity,optionalNote,editingItemId,isLoading,error,}
    = useSelector((state: RootState) => state.addItem);
 
   let user = useSelector((state: RootState) => state.signIn?.currentUser);
@@ -76,7 +76,7 @@ export const ShoppingItems = () => {
         <div className={styles.itemContent}>
           <h1>Shopping Items</h1>
           <div className={styles.searchBar}>
-           <SearchBar value={searchValue} onChange={handleSearchChange} />
+           {/* <SearchBar value={searchValue} onChange={handleSearchChange} /> */}
            </div>
           {error && <p className={styles.errorField}>{error}</p>}
           
@@ -143,7 +143,7 @@ export const ShoppingItems = () => {
         
       </form>
       
-      <div className={styles.itemsDisplayList}>
+      {/* <div className={styles.itemsDisplayList}>
         
         {items.length > 0 && (
           <div>
@@ -163,7 +163,7 @@ export const ShoppingItems = () => {
         )}
         
       </div>
-      
+       */}
     </div>
   );
 };
