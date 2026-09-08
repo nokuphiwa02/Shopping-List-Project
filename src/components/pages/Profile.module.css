@@ -43,21 +43,21 @@ h1 {
   height: 30px;
   border-radius: 10px;
 }
-.delBtn {
+.logoutbtn {
   width: 100px;
-  height: 30px;
+  height: 45px;
   background-color: rgb(180, 48, 76);
   color: white;
 }
 
-.editBtn {
+.updatebtn {
   width: 100px;
-  height: 30px;
+  height: 45px;
   background-color: blue;
 }
 
 .third{
-   display: flex;
+  display: flex;
   flex-direction: row;
   gap: 20px;
   text-align: start; 
@@ -66,12 +66,14 @@ h1 {
 .backBtn{
  margin-bottom: 50px;
  color: white;
- background-color: blue;
+ height: 40px;
+ background-color:#808080;
 }
 .btns{
  display: flex;
  flex-direction: column;
- gap: 5px;
+ gap: 20px;
  margin-left: 10px;
  margin-bottom: 20px;
+
 }

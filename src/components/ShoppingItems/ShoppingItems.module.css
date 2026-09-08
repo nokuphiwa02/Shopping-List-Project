@@ -10,7 +10,7 @@
 
 .itemContent {
   width: 99%;
-  height: 100%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   gap: 20px;

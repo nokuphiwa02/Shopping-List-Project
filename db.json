@@ -102,10 +102,9 @@
     {
       "name": "fabian",
       "surname": "blose",
+      "contact": "098746534",
       "email": "fab21@gmail.com",
       "password": "ffab@21",
-      "contact": "098746534",
-      "confirmPassword": "fab@21",
       "id": "srRUQG8oDP8"
     }
   ],
@@ -213,19 +212,34 @@
       "id": "ssfoDFUKCyE"
     },
     {
-      "userId": "srRUQG8oDP8",
-      "category": "home tools",
-      "id": "x-a-s3tN3ik"
-    },
-    {
-      "userId": "srRUQG8oDP8",
-      "category": "baby items",
-      "id": "_gqTYL57cFM"
-    },
-    {
       "userId": " ",
       "category": "4e4yq",
       "id": "wFbixfcNFo4"
+    },
+    {
+      "userId": "srRUQG8oDP8",
+      "category": "sweet",
+      "id": "WmSw-fdsTyY"
+    },
+    {
+      "userId": "srRUQG8oDP8",
+      "category": "banana",
+      "id": "jNgEvRLgPiM"
+    },
+    {
+      "userId": "srRUQG8oDP8",
+      "category": "orange",
+      "id": "fuymE1ObVns"
+    },
+    {
+      "userId": "srRUQG8oDP8",
+      "category": "Mango",
+      "id": "ycTqxh-huco"
+    },
+    {
+      "userId": "srRUQG8oDP8",
+      "category": "grape",
+      "id": "nHZU_J5Fk6w"
     }
   ],
   "items": [
@@ -328,6 +342,13 @@
       "quantity": 2,
       "optionalNote": "PicknPay",
       "id": "F29Iso1ugxo"
+    },
+    {
+      "userId": "srRUQG8oDP8",
+      "name": "eteryrety",
+      "quantity": 1,
+      "optionalNote": "aeWE",
+      "id": "uvPTcfhXreI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

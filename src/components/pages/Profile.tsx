@@ -143,10 +143,10 @@ export const Profile = () => {
             />
           </div>
           <div className={styles.btns}>
-            <button type="button" className={styles.delBtn} onClick={handleLogOut}>
+            <button type="button" className={styles.logoutbtn} onClick={handleLogOut}>
               LogOut
             </button>
-            <button type="submit" className={styles.editBtn} disabled={isLoading}>
+            <button type="submit" className={styles.updatebtn} disabled={isLoading}>
               {isLoading ? 'Updating...' : 'Update'}
             </button>
             <button type="button" className={styles.backBtn} onClick={back}>
