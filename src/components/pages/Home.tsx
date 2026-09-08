@@ -2,11 +2,15 @@ import { useEffect } from "react";
 import styles from "./Home.module.css";
 import { Navbar } from "../Navbar/Navbar";
 import SearchBar from "../Searchbar/Searchbar";
-import { ShoppingForm } from "../shoppingForm/shoppingForm";
+import { ShoppingForm } from "../ShoppingForm/shoppingForm";
 import { CategoryCard } from "../CategoryCard/CategoryCard";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../../store";
-import {getList,deleteList, setEditingList} from "../../redux/features/ShoppingListSlice";
+import {
+  getList,
+  deleteList,
+  setEditingList,
+} from "../../redux/features/ShoppingListSlice";
 import type { AppDispatch } from "../../../store";
 import { useLocation, useNavigate } from "react-router";
 
@@ -18,8 +22,10 @@ export const Home = () => {
   const queryParams = new URLSearchParams(location.search);
   const searchInput = queryParams.get("search") || "";
 
+  const sortOrder = queryParams.get("sort") || "";
+
   const handleSearhChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  const val = e.target.value;
+    const val = e.target.value;
 
     const params = new URLSearchParams(location.search);
     if (val) {
@@ -27,6 +33,20 @@ export const Home = () => {
     } else {
       params.delete("search");
     }
+    navigate({ search: params.toString() }, { replace: true });
+  };
+
+  const handleSortToggle = () => {
+    const params = new URLSearchParams(location.search);
+
+    if (sortOrder === "asc") {
+      params.set("sort", "desc");
+    } else if (sortOrder === "desc") {
+      params.delete("sort");
+    } else {
+      params.set("sort", "asc");
+    }
+
     navigate({ search: params.toString() }, { replace: true });
   };
 
@@ -49,17 +69,31 @@ export const Home = () => {
     list.category.toLowerCase().includes(searchInput.toLowerCase()),
   );
 
+  const sortedLists = [...filteredLists].sort((a, b) => {
+    if (sortOrder === "asc") {
+      return a.category.localeCompare(b.category);
+    }
+    if (sortOrder === "desc") {
+      return b.category.localeCompare(a.category);
+    }
+    return 0;
+  });
+
   return (
     <div className={styles.HomeContainer}>
       <div>
         <Navbar />
-        <SearchBar value={searchInput} onChange={handleSearhChange} />
+        <SearchBar
+          value={searchInput}
+          onChange={handleSearhChange}
+          onSort={handleSortToggle}
+        />
         <ShoppingForm />
         <div className={styles.cardsContainer}>
-          {filteredLists.length === 0 ? (
+          {sortedLists.length === 0 ? (
             <p>No shopping lists found. Create one above!</p>
           ) : (
-            filteredLists.map((item) => (
+            sortedLists.map((item) => (
               <CategoryCard
                 key={item.id}
                 category={item}
