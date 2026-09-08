@@ -4,9 +4,10 @@ import React from "react";
 type SearchProps = {
   value: string,
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSort:() =>  void;
 };
 
-const SearchBar: React.FC<SearchProps> = ({onChange, value }) => {
+const SearchBar: React.FC<SearchProps> = ({onChange, value, onSort }) => {
   return (
     <div className={styles.searchContainer}>
     
@@ -22,7 +23,11 @@ const SearchBar: React.FC<SearchProps> = ({onChange, value }) => {
         />
         
       </div>
-      <button className={styles.sortBtn}>sort by</button>
+      <select className={styles.sortBtn} onClick={onSort}>
+        <option value="">Sort by</option>
+        <option value="date">Added Date</option>
+        <option value="category">Category</option>
+      </select>
       
     </div>
   );
