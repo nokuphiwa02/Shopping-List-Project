@@ -21,7 +21,7 @@ gap: 20px;
 
 .editBtn {
 width: 100px;
-height: 30px;
+height: 45px;
 border-radius: 7px;
 color: white;
 margin-left: 100px;
@@ -30,7 +30,7 @@ background-color: blue;
 
 .deleteBtn {
 width: 100px;
-height: 30px;
+height: 45px;
 border-radius: 7px;
 color: white;
 margin-left: 100px;
