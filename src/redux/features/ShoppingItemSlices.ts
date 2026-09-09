@@ -29,6 +29,7 @@ const initialState: itemsState = {
   error: null,
 };
 
+//create user Item
 export const ItemsThunk = createAsyncThunk(
   "Items/ItemsThunk",
   async (newItem: Items, { rejectWithValue }) => {
@@ -47,6 +48,7 @@ export const ItemsThunk = createAsyncThunk(
   },
 );
 
+//view user Item
 export const getItemsThunk = createAsyncThunk(
   "Items/getItemsThunk",
   async (userId: string, { rejectWithValue }) => {
@@ -67,6 +69,8 @@ export const getItemsThunk = createAsyncThunk(
   },
 );
 
+
+//Delete user item
 export const deleteItemThunk = createAsyncThunk(
   "Items/deleteItemThunk",
   async (id: string, { rejectWithValue }) => {
@@ -84,6 +88,8 @@ export const deleteItemThunk = createAsyncThunk(
   },
 );
 
+
+//update user item
 export const updateItemThunk = createAsyncThunk(
   "Items/updateItemThunk",
   async (updatedItem: Items, { rejectWithValue }) => {

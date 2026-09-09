@@ -5,12 +5,12 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../../store";
 import {
-  updateName,
-  updateSurname,
-  updateEmailAddress,
-  updatePassword,
-  updateContact,
-  updateConfirmPassword,
+   AddName,
+   AddSurname,
+   AddEmailAddress,
+   AddPassword,
+   AddContact,
+   AddConfirmPassword,
   RegisterThunk,
 } from "../../redux/features/RegisterSlice";
 
@@ -75,7 +75,7 @@ export const Register = () => {
               type="userName"
               className={styles.username}
               value={name}
-              onChange={(e) => dispatch(updateName(e.target.value))}
+              onChange={(e) => dispatch( AddName(e.target.value))}
             />
             
           </div>
@@ -87,7 +87,7 @@ export const Register = () => {
               type="surname"
               className={styles.Surname}
               value={surname}
-              onChange={(e) => dispatch(updateSurname(e.target.value))}
+              onChange={(e) => dispatch( AddSurname(e.target.value))}
             />
             
           </div>
@@ -103,7 +103,7 @@ export const Register = () => {
               type="contact"
               className={styles.Contact}
               value={contact}
-              onChange={(e) => dispatch(updateContact(e.target.value))}
+              onChange={(e) => dispatch( AddContact(e.target.value))}
             />
             
           </div>
@@ -115,7 +115,7 @@ export const Register = () => {
               type="email Address"
               className={styles.Email}
               value={email}
-              onChange={(e) => dispatch(updateEmailAddress(e.target.value))}
+              onChange={(e) => dispatch( AddEmailAddress(e.target.value))}
             />
             
           </div>
@@ -131,7 +131,7 @@ export const Register = () => {
               type="password"
               className={styles.Password}
               value={password}
-              onChange={(e) => dispatch(updatePassword(e.target.value))}
+              onChange={(e) => dispatch( AddPassword(e.target.value))}
             />
             
           </div>
@@ -143,7 +143,7 @@ export const Register = () => {
               type="confirm Password"
               className={styles.ConfirmPass}
               value={confirmPassword}
-              onChange={(e) => dispatch(updateConfirmPassword(e.target.value))}
+              onChange={(e) => dispatch( AddConfirmPassword(e.target.value))}
             />
             
           </div>

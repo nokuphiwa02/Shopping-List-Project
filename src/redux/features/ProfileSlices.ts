@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { User } from "./RegisterSlice";
-// 👇 Import your actual application types directly from your global store
 import type { RootState } from "../../../store"; 
 
 interface ProfileState {
@@ -38,9 +37,7 @@ const getAuthenticatedUser = (state: RootState): string | null | number => {
   return null;
 };
 
-export const FetchProfileThunk = createAsyncThunk<
-  User,
-  void,
+export const FetchProfileThunk = createAsyncThunk<User,void,
   { state: RootState; rejectValue: string }
 >("profile/FetchProfileThunk", async (_, { getState, rejectWithValue }) => {
   try {
@@ -65,6 +62,7 @@ export const FetchProfileThunk = createAsyncThunk<
   }
 });
 
+// update user profile 
 export const UpdateProfileThunk = createAsyncThunk<
   User,
   Partial<Omit<ProfileState, "isLoading" | "error">>,
@@ -118,8 +116,7 @@ export const ProfileSlice = createSlice({
       })
       .addCase(
         FetchProfileThunk.fulfilled,
-        (state, action: PayloadAction<User>) => {
-          state.isLoading = false;
+        (state, action: PayloadAction<User>) => {state.isLoading = false;
           state.id = action.payload.id;
           state.name = action.payload.name || "";
           state.surname = action.payload.surname || "";

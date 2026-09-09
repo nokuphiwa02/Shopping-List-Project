@@ -3,30 +3,14 @@ import styles from "./ShoppingItems.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../../store";
 import { useNavigate } from "react-router";
-// import { ItemCard } from "../ItemCard/ItemCard";
-import {
-  addName,
-  addQuantity,
-  addOptionalnote,
-  ItemsThunk,
-  getItemsThunk,
-  // deleteItemThunk,
-  // setEditingItem,
-  updateItemThunk,
-} from "../../redux/features/ShoppingItemSlices";
+import {addName,addQuantity,addOptionalnote, ItemsThunk,getItemsThunk, updateItemThunk,} from "../../redux/features/ShoppingItemSlices";
 import type { AppDispatch } from "../../../store";
-// import SearchBar from "../Searchbar/Searchbar";
 
 
 export const ShoppingItems = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
-  // const [searchValue, setSearchValue] = React.useState("");
-
-  // const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setSearchValue(e.target.value);
-  // };
 
   const {name,quantity,optionalNote,editingItemId,isLoading,error,}
    = useSelector((state: RootState) => state.addItem);
@@ -55,13 +39,8 @@ export const ShoppingItems = () => {
 
     if (editingItemId) {
       dispatch(
-        updateItemThunk({
-          id: editingItemId,
-          userId,
-          name,
-          quantity,
-          optionalNote,
-        }),
+        updateItemThunk({id: editingItemId,userId,name,quantity,optionalNote,
+       }),
       );
     } else {
       dispatch(ItemsThunk({ userId, name, quantity, optionalNote }));
@@ -75,28 +54,21 @@ export const ShoppingItems = () => {
        
         <div className={styles.itemContent}>
           <h1>Shopping Items</h1>
-          <div className={styles.searchBar}>
-           {/* <SearchBar value={searchValue} onChange={handleSearchChange} /> */}
-           </div>
           {error && <p className={styles.errorField}>{error}</p>}
           
           <div>
             <label>Item Name:</label>
-            
             <input
               className={styles.name}
               type="text"
               placeholder="Item name..."
               value={name}
               onChange={(e) => dispatch(addName(e.target.value))}
-              required
-            />
-            
+              required/>
           </div>
           
           <div>
             <label>Quantity:</label>
-            
             <input
               className={styles.quantity}
               type="number"
@@ -104,66 +76,33 @@ export const ShoppingItems = () => {
               value={quantity === 0 ? "" : quantity}
               onChange={(e) => dispatch(addQuantity(Number(e.target.value)))}
               min="1"
-              required
-            />
-            
+              required/>
           </div>
           
           <div>
             <label>Optional Note:</label>
-            
             <input
               className={styles.optional}
               type="text"
               placeholder="Optional note..."
               value={optionalNote}
-              onChange={(e) => dispatch(addOptionalnote(e.target.value))}
-            />
-            
+              onChange={(e) => dispatch(addOptionalnote(e.target.value))}/>
           </div>
           
           <div className={styles.buttons}>
-            
             <button
               className={styles.addBtn}
               type="submit"
-              disabled={isLoading}
-            >
+              disabled={isLoading}>
               {editingItemId ? "Update" : "Add Item"}
-              
             </button>
-            
             <button type="button" className={styles.back} onClick={back}>
               Back 
             </button>
-            
           </div>
-          
+
         </div>
-        
       </form>
-      
-      {/* <div className={styles.itemsDisplayList}>
-        
-        {items.length > 0 && (
-          <div>
-            
-            {items.map((item) => (
-              <ItemCard
-                key={item.id}
-                items={item}
-                onEdit={() => dispatch(setEditingItem(item))}
-                onDelete={() => {
-                  if (item.id) dispatch(deleteItemThunk(item.id));
-                }}
-              />
-            ))}
-            
-          </div>
-        )}
-        
-      </div>
-       */}
     </div>
   );
 };

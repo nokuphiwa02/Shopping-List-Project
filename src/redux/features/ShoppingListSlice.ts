@@ -23,6 +23,7 @@ const initialState: ListState = {
   error: null,
 };
 
+//create user List
 export const createList = createAsyncThunk(
   "List/ListThunk",
   async (newList: Omit<List, "id">, { rejectWithValue }) => {
@@ -40,6 +41,7 @@ export const createList = createAsyncThunk(
   },
 );
 
+//view user List
 export const getList = createAsyncThunk(
   "List/getListThunk",
   async (userId: string, { rejectWithValue }) => {
@@ -59,6 +61,7 @@ export const getList = createAsyncThunk(
   },
 );
 
+//delete user List
 export const deleteList = createAsyncThunk(
   "List/deleteList",
   async (id: string, { rejectWithValue }) => {
@@ -75,6 +78,8 @@ export const deleteList = createAsyncThunk(
   },
 );
 
+
+//update user List
 export const updateList = createAsyncThunk(
   "List/updateList",
   async (updatedList: List, { rejectWithValue }) => {

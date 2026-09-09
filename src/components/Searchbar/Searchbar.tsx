@@ -21,7 +21,6 @@ const SearchBar: React.FC<SearchProps> = ({onChange, value, onSort }) => {
           value={value}
           onChange={onChange}
         />
-        
       </div>
       <select className={styles.sortBtn} onClick={onSort}>
         <option value="">Sort by</option>

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { getItemsThunk } from "../../redux/features/ShoppingItemSlices";
 import type { AppDispatch, RootState } from "../../../store";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteItemThunk } from "../../redux/features/ShoppingItemSlices";
+import { deleteItemThunk, setEditingItem } from "../../redux/features/ShoppingItemSlices";
 
 
 export const ShoppingItemsPage = () => {
@@ -35,17 +35,18 @@ export const ShoppingItemsPage = () => {
   return (
     <div className={styles.itemPgsContainer}>
       <ShoppingItems />
-
+      <div className={styles.cardContent}>
       {filteredItems.map((item) => (
         <ItemCard
           key={item.id}
           items={item}
-          onEdit={() => ({})}
+          onEdit={() => dispatch(setEditingItem(item))}
           onDelete={() => {
             dispatch(deleteItemThunk(item.id!));
           }}
         />
       ))}
+      </div>
     </div>
   );
 };

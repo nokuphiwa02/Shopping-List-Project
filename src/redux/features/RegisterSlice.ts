@@ -51,22 +51,22 @@ export const RegisterSlice = createSlice({
   name: "signUp",
   initialState,
   reducers: {
-    updateName: (state, action: PayloadAction<string>) => {
+    AddName: (state, action: PayloadAction<string>) => {
       state.name = action.payload;
     },
-    updateSurname: (state, action: PayloadAction<string>) => {
+     AddSurname: (state, action: PayloadAction<string>) => {
       state.surname = action.payload;
     },
-    updateEmailAddress: (state, action: PayloadAction<string>) => {
+     AddEmailAddress: (state, action: PayloadAction<string>) => {
       state.email = action.payload;
     },
-    updatePassword: (state, action: PayloadAction<string>) => {
+     AddPassword: (state, action: PayloadAction<string>) => {
       state.password = action.payload;
     },
-    updateContact: (state, action: PayloadAction<string>) => {
+    AddContact: (state, action: PayloadAction<string>) => {
       state.contact = action.payload;
     },
-    updateConfirmPassword: (state, action: PayloadAction<string>) => {
+     AddConfirmPassword: (state, action: PayloadAction<string>) => {
       state.confirmPassword = action.payload;
     },
   },
@@ -86,12 +86,12 @@ export const RegisterSlice = createSlice({
 });
 
 export const {
-  updateName,
-  updateSurname,
-  updateEmailAddress,
-  updatePassword,
-  updateContact,
-  updateConfirmPassword,
+   AddName,
+   AddSurname,
+   AddEmailAddress,
+   AddPassword,
+   AddContact,
+   AddConfirmPassword,
 } = RegisterSlice.actions;
 
 export default RegisterSlice.reducer;

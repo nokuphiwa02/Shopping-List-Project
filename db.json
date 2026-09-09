@@ -1,354 +1,142 @@
 {
   "users": [
     {
-      "name": "happiness",
-      "surname": "Mhlongo",
-      "email": "happiness321@gmail.com",
+      "name": "phiwa",
+      "surname": "shange",
+      "email": "Phiwa01@gmail.com",
       "password": "12345",
-      "contact": "0636777546",
+      "contact": "1234567890",
       "confirmPassword": "12345",
-      "id": "mtdfyCSpngg"
-    },
-    {
-      "name": "Phiwa",
-      "surname": "Shange",
-      "email": "Phiwa21@gmail.com",
-      "password": "56789",
-      "contact": "0785626970",
-      "confirmPassword": "56789",
-      "id": "hNMO1xoM9vw"
-    },
-    {
-      "name": "Nokuphiwa",
-      "surname": "Shange",
-      "email": "shangenokuphiw683@gmail.com",
-      "password": "Phiwa@02",
-      "contact": "0639702439",
-      "confirmPassword": "Phiwa@02",
-      "id": "rkYGlMtTuhY"
-    },
-    {
-      "name": "Anele",
-      "surname": "Shange",
-      "email": "aneleshange20@gmail.com",
-      "password": "Anele@20",
-      "contact": "0785626970",
-      "confirmPassword": "Anele@20",
-      "id": "OML4mh6vQ4s"
+      "id": "oSuQG3P_VIo"
     },
     {
       "name": "Sabelo",
       "surname": "Gumede",
-      "email": "sabelogumede@gmail.com",
-      "password": "123456",
-      "contact": "0123456789",
-      "confirmPassword": "123456",
-      "id": "PevuzCcG89c"
-    },
-    {
-      "name": "Nely",
-      "surname": "Ngcobo",
-      "email": "neli@gmail.com",
-      "password": "Neliswa",
-      "contact": "0712346776",
-      "confirmPassword": "Neliswa",
-      "id": "xyoDoR6RUG4"
-    },
-    {
-      "name": "Nokuphiw8",
-      "surname": "Shange",
-      "email": "shangenokiw683@gmail.com",
-      "password": "Phiwa",
-      "contact": "7887",
-      "confirmPassword": "Phiwa",
-      "id": "Rjz92Coy5Ls"
-    },
-    {
-      "name": "Mike",
-      "surname": "Phoswa",
-      "email": "mikephoswa@gmail.com",
-      "password": "Mike",
-      "contact": "083567885",
-      "confirmPassword": "Mike",
-      "id": "CMK1tS1jd9U"
-    },
-    {
-      "name": "Phiwa",
-      "surname": "Shange",
-      "email": "Shange24@gmail.com",
-      "password": "Shange@24",
-      "contact": "0812345678",
-      "confirmPassword": "Shange@24",
-      "id": "FdyKxWErJ6U"
-    },
-    {
-      "name": "Phiwa",
-      "surname": "shange",
-      "email": "git status",
-      "password": "67890",
-      "contact": "0785626970",
-      "confirmPassword": "67890",
-      "id": "BBKo2QXG6V8"
-    },
-    {
-      "name": "Nokuh",
-      "surname": "Shange",
-      "email": "noku071@gmail.com",
-      "password": "noku071",
-      "contact": "0712933355",
-      "confirmPassword": "noku071",
-      "id": "-fItQbpsfkE"
-    },
-    {
-      "name": "fabian",
-      "surname": "blose",
-      "contact": "098746534",
-      "email": "fab21@gmail.com",
-      "password": "ffab@21",
-      "id": "srRUQG8oDP8"
+      "contact": "1234568709",
+      "email": "sabelo@gmail.com",
+      "password": "sabelo@12",
+      "id": "eLvkZGaSfAw"
     }
   ],
   "list": [
     {
-      "category": "grocery",
-      "id": "Z4XszQW5rhE"
-    },
-    {
-      "category": "Neliswa's grocery",
-      "id": "yOGwy4aqqng"
-    },
-    {
-      "category": "Nokuphiwa",
-      "id": "_l9BH_xaJew"
+      "userId": "oSuQG3P_VIo",
+      "category": "fruits",
+      "id": "srLEqX0474Y"
     },
     {
       "userId": " ",
-      "category": "Scelo Shopping List",
-      "id": "tbEDVhrAiYY"
+      "category": "DEFEDGE",
+      "id": "Td0k5XdxNlE"
     },
     {
-      "userId": "xyoDoR6RUG4",
-      "category": "",
-      "id": "4UG38o8Am5Y"
+      "id": "yuVCa-TSCSs",
+      "userId": "eLvkZGaSfAw",
+      "category": "Home tool"
     },
     {
-      "userId": " ",
-      "category": "HHHH",
-      "id": "hRI_m1gMBW0"
-    },
-    {
-      "userId": " ",
-      "category": "hjhvhj",
-      "id": "6M65K7XhVM4"
+      "userId": "eLvkZGaSfAw",
+      "category": "shopping list",
+      "id": "9Jgr5aiRF0s"
     },
     {
       "userId": " ",
-      "category": "fguuy",
-      "id": "KenK6cMWWRM"
+      "category": "dgr",
+      "id": "B0K7YmLjqQw"
     },
     {
-      "userId": " ",
-      "category": "New One",
-      "id": "lplc_Am6lLo"
+      "userId": "oSuQG3P_VIo",
+      "category": "ryywe",
+      "id": "Wou6I1uKxVY"
     },
     {
-      "userId": "xyoDoR6RUG4",
-      "category": "New One",
-      "id": "0La-Maz_r4E"
+      "userId": "oSuQG3P_VIo",
+      "category": "ysdusdhy",
+      "id": "reNiVN0dWWg"
     },
     {
-      "userId": "xyoDoR6RUG4",
-      "category": "New One",
-      "id": "zYy6U3xRwqo"
-    },
-    {
-      "id": "bNobnWDlAWw",
-      "userId": "CMK1tS1jd9U",
-      "category": "shopping List2"
-    },
-    {
-      "userId": "OML4mh6vQ4s",
-      "category": "grocery",
-      "id": "aBjqh7EI0TQ"
-    },
-    {
-      "id": "FKGOA4z4Bq8",
-      "userId": "BBKo2QXG6V8",
-      "category": "groceries"
-    },
-    {
-      "userId": "CMK1tS1jd9U",
-      "category": "alcohol",
-      "id": "e2kmN3dVKmA"
-    },
-    {
-      "userId": "-fItQbpsfkE",
-      "category": "baby shower list",
-      "id": "tdXaoFd-U9U"
-    },
-    {
-      "userId": "-fItQbpsfkE",
-      "category": "home tools",
-      "id": "zxFEgHt63tY"
-    },
-    {
-      "userId": " ",
-      "category": "erfy",
-      "id": "QWDS5CgBuCc"
-    },
-    {
-      "userId": " ",
-      "category": "rte3765737",
-      "id": "PYjgAMuINTo"
-    },
-    {
-      "userId": " ",
-      "category": "wea3t3t",
-      "id": "Q6rv3Z1CZV8"
-    },
-    {
-      "userId": "BBKo2QXG6V8",
-      "category": "456u65",
-      "id": "ssfoDFUKCyE"
-    },
-    {
-      "userId": " ",
-      "category": "4e4yq",
-      "id": "wFbixfcNFo4"
-    },
-    {
-      "userId": "srRUQG8oDP8",
-      "category": "sweet",
-      "id": "WmSw-fdsTyY"
-    },
-    {
-      "userId": "srRUQG8oDP8",
-      "category": "banana",
-      "id": "jNgEvRLgPiM"
-    },
-    {
-      "userId": "srRUQG8oDP8",
-      "category": "orange",
-      "id": "fuymE1ObVns"
-    },
-    {
-      "userId": "srRUQG8oDP8",
-      "category": "Mango",
-      "id": "ycTqxh-huco"
-    },
-    {
-      "userId": "srRUQG8oDP8",
-      "category": "grape",
-      "id": "nHZU_J5Fk6w"
+      "userId": "oSuQG3P_VIo",
+      "category": "sddesdes",
+      "id": "ov-_eWmPHw8"
     }
   ],
   "items": [
     {
-      "name": "",
-      "quantity": 0,
-      "optionalNote": "",
-      "id": "cfDlFANYMd0"
-    },
-    {
-      "name": "",
-      "quantity": 0,
-      "optionalNote": "",
-      "id": "V1CTZAm0S0c"
-    },
-    {
-      "name": "",
-      "quantity": 0,
-      "optionalNote": "",
-      "id": "DsEX8eXJ4so"
-    },
-    {
-      "name": "",
-      "quantity": 0,
-      "optionalNote": "",
-      "id": "9Ap2JPRq1IA"
-    },
-    {
-      "name": "",
-      "quantity": 0,
-      "optionalNote": "",
-      "id": "4VxX3qmudBw"
-    },
-    {
-      "userId": "CMK1tS1jd9U",
-      "name": "cakes",
-      "quantity": 2,
-      "optionalNote": "P n P",
-      "id": "OGNTlNS9JMY"
-    },
-    {
-      "id": "RMT5FRldO9U",
-      "userId": "CMK1tS1jd9U",
-      "name": "87YR",
-      "quantity": 8,
-      "optionalNote": "6T7I"
-    },
-    {
-      "userId": "CMK1tS1jd9U",
-      "name": "00UIJL",
-      "quantity": 7,
-      "optionalNote": "UHUKY GYU",
-      "id": "LZrSDdOVlxI"
-    },
-    {
-      "userId": "CMK1tS1jd9U",
-      "name": "SWWRFR",
-      "quantity": 3,
-      "optionalNote": "QWE",
-      "id": "WY6du4hfiZM"
-    },
-    {
-      "userId": "-fItQbpsfkE",
-      "name": " baby clothes",
-      "quantity": 3,
-      "optionalNote": "pep",
-      "id": "yFvCZiiV-D4"
-    },
-    {
-      "userId": "-fItQbpsfkE",
-      "name": "r5eag",
-      "quantity": 3,
-      "optionalNote": "werf",
-      "id": "xvWlEeXjwEg"
-    },
-    {
-      "userId": "srRUQG8oDP8",
-      "name": "ireireoopropr",
-      "quantity": 3,
-      "optionalNote": "3r41",
-      "id": "wqF1pffxwMI"
-    },
-    {
-      "userId": "srRUQG8oDP8",
-      "name": "314t43t",
-      "quantity": 3,
-      "optionalNote": "1wegf",
-      "id": "2DVmKskSNqs"
-    },
-    {
-      "userId": "",
+      "userId": "oSuQG3P_VIo",
       "name": "apple",
-      "quantity": 3,
-      "optionalNote": "fruits vege",
-      "id": "_HN_dVGrQE0"
+      "quantity": 2,
+      "optionalNote": "shoprite",
+      "id": "WIJh8nVutjA"
     },
     {
       "userId": "",
-      "name": "Mango",
-      "quantity": 2,
-      "optionalNote": "PicknPay",
-      "id": "F29Iso1ugxo"
+      "name": "345536",
+      "quantity": 4,
+      "optionalNote": "wr",
+      "id": "h732BtMrOGQ"
     },
     {
-      "userId": "srRUQG8oDP8",
-      "name": "eteryrety",
-      "quantity": 1,
-      "optionalNote": "aeWE",
-      "id": "uvPTcfhXreI"
+      "userId": "",
+      "name": "352",
+      "quantity": 3,
+      "optionalNote": "reyer",
+      "id": "ZkC3bSNNuds"
+    },
+    {
+      "userId": "",
+      "name": "wrqr",
+      "quantity": 2,
+      "optionalNote": "weqrw",
+      "id": "W_6jZ67XuDQ"
+    },
+    {
+      "userId": "",
+      "name": "asfa",
+      "quantity": 2,
+      "optionalNote": "sedga",
+      "id": "yZV1qegnL1I"
+    },
+    {
+      "userId": "eLvkZGaSfAw",
+      "name": "drinks",
+      "quantity": 3,
+      "optionalNote": "pick n pay",
+      "id": "qyKfeW6zj3Y"
+    },
+    {
+      "id": "Wcq2a7vxxXo",
+      "userId": "oSuQG3P_VIo",
+      "name": "drinks",
+      "quantity": 2,
+      "optionalNote": "spar"
+    },
+    {
+      "userId": "oSuQG3P_VIo",
+      "name": "meats",
+      "quantity": 2,
+      "optionalNote": "bluffo",
+      "id": "OE-A068sKFY"
+    },
+    {
+      "userId": "oSuQG3P_VIo",
+      "name": "clothes",
+      "quantity": 5,
+      "optionalNote": "jet",
+      "id": "riooKbyxksI"
+    },
+    {
+      "userId": "oSuQG3P_VIo",
+      "name": "cakes",
+      "quantity": 4,
+      "optionalNote": "Pick n Pay",
+      "id": "FBpUk_ByJX0"
+    },
+    {
+      "userId": "oSuQG3P_VIo",
+      "name": "snacks",
+      "quantity": 6,
+      "optionalNote": "checkers",
+      "id": "KInesO1Kg9Q"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -2,15 +2,11 @@ import { useEffect } from "react";
 import styles from "./Home.module.css";
 import { Navbar } from "../Navbar/Navbar";
 import SearchBar from "../Searchbar/Searchbar";
-import { ShoppingForm } from "../ShoppingForm/shoppingForm";
+import { ShoppingForm } from "../ShoppingForm/ShoppingForm";
 import { CategoryCard } from "../CategoryCard/CategoryCard";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../../store";
-import {
-  getList,
-  deleteList,
-  setEditingList,
-} from "../../redux/features/ShoppingListSlice";
+import { getList, deleteList,setEditingList} from "../../redux/features/ShoppingListSlice";
 import type { AppDispatch } from "../../../store";
 import { useLocation, useNavigate } from "react-router";
 
@@ -89,7 +85,7 @@ export const Home = () => {
           onSort={handleSortToggle}
         />
         <ShoppingForm />
-        <div className={styles.cardsContainer}>
+        <div className={styles.cardsContent}>
           {sortedLists.length === 0 ? (
             <p>No shopping lists found. Create one above!</p>
           ) : (

@@ -41,6 +41,7 @@ button {
 button:hover {
   transform: translatey(-2px);
 }
+
 .landingPage img {
   width: 250px;
   height: 200px;

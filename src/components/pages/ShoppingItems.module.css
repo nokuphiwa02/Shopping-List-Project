@@ -1,0 +1,16 @@
+.itemPgsContainer{
+
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    
+}
+
+.cardContent{
+    max-width: 1100px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
