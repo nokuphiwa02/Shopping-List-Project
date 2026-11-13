@@ -12,21 +12,19 @@ interface itemCardProps {
 export const ItemCard = ({ items, onEdit, onDelete }: itemCardProps) => {
   return (
     <div className={styles.itemCard}>
-      <div className={styles.itemContent}>
-        <h2 className={styles.h2}>{items.name}</h2>
-        <h2  className={styles.h2}>{items.quantity}</h2>
-        <h2  className={styles.h2}>{items.optionalNote}</h2>
 
-        <div className={styles.btnContent}>
+      <div className={styles.itemContent}>
+        <p><strong>Name:</strong> {items.name}</p>
+        <p><strong>Quantity:</strong> {items.quantity}</p>
+        <p><strong>Shop:</strong> {items.optionalNote || "Not specified"}</p>
+      <div className={styles.btnContent}>
+
         <button onClick={onEdit} className={styles.editBtn}>
           Edit
         </button>
 
         <button onClick={onDelete} className={styles.deleteBtn}>
           Delete
-        </button>
-        <button className={styles.shareBtn}>
-          <img src={shareIcon} alt="shareIcon" className={styles.shareicon}/>
         </button>
         </div>
       </div>

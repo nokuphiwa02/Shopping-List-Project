@@ -1,36 +1,55 @@
+
 .profileContainer {
-  width: 100vw;
-  height: 100vh;
-  background-color: #212121;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7f1 0%, #e5f0e7 100%);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 30px 20px;
+  box-sizing: border-box;
 }
 
 .profileContent {
-  width: 70%;
-  height: 90%;
+  width: 100%;
+  max-width: 750px;
+  min-height: 600px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  border: solid grey;
+  gap: 35px;
+  background-color: #ffffff;
+  border: 1px solid rgba(121, 184, 154, 0.3);
   border-radius: 20px;
   align-items: center;
+  justify-content: center;
+  padding: 40px;
+  box-shadow: 0 15px 45px rgba(23, 63, 53, 0.10);
+  box-sizing: border-box;
 }
-h1 {
-  color: white;
+
+.profileContent h1 {
+  color: #173f35;
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+  text-align: center;
 }
+
 .profileIcon {
   width: 80px;
   height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #79b89a;
 }
 
 .first,
-.second
- {
+.second {
+  width: 100%;
   display: flex;
   flex-direction: row;
   gap: 30px;
+  justify-content: center;
   text-align: start;
 }
 
@@ -40,40 +59,161 @@ h1 {
 .Password,
 .Contact {
   width: 200px;
-  height: 30px;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #d5e3d9;
   border-radius: 10px;
+  background-color: #f8faf7;
+  color: #173f35;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.3s ease;
 }
+
+.Surname:focus,
+.Name:focus,
+.Email:focus,
+.Password:focus,
+.Contact:focus {
+  border-color: #79b89a;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(121, 184, 154, 0.18);
+}
+
+.profileContent label {
+  display: block;
+  color: #173f35;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+
+.third {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: start;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
 .logoutbtn {
-  width: 100px;
+  width: 130px;
   height: 45px;
-  background-color: rgb(180, 48, 76);
-  color: white;
+  border: none;
+  border-radius: 10px;
+  background-color: #b94b55;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logoutbtn:hover {
+  background-color: #963742;
+  transform: translateY(-2px);
 }
 
 .updatebtn {
-  width: 100px;
+  width: 130px;
   height: 45px;
-  background-color: blue;
+  border: none;
+  border-radius: 10px;
+  background-color: #173f35;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.third{
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  text-align: start; 
+.updatebtn:hover {
+  background-color: #79b89a;
+  color: #173f35;
+  transform: translateY(-2px);
 }
 
-.backBtn{
- margin-bottom: 50px;
- color: white;
- height: 40px;
- background-color:#808080;
+.backBtn {
+  width: 130px;
+  min-width: 130px;
+  height: 45px;
+  padding: 0 20px;
+  margin: 0;
+  border: 1px solid #79b89a;
+  border-radius: 10px;
+  color: #173f35;
+  background-color: #e5f0e7;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-.btns{
- display: flex;
- flex-direction: column;
- gap: 20px;
- margin-left: 10px;
- margin-bottom: 20px;
 
+.backBtn:hover {
+  background-color: #79b89a;
+  transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 650px) {
+  .profileContainer {
+    padding: 20px 12px;
+  }
+
+  .profileContent {
+    min-height: auto;
+    padding: 30px 20px;
+    gap: 25px;
+  }
+
+  .profileContent h1 {
+    font-size: 23px;
+  }
+
+  .first,
+  .second,
+  .third {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .first > div,
+  .second > div,
+  .third > div {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .Surname,
+  .Name,
+  .Email,
+  .Password,
+  .Contact {
+    width: 100%;
+  }
+
+  .btns {
+    width: 100%;
+    margin: 0;
+  }
+
+  .logoutbtn,
+  .updatebtn,
+  .backBtn {
+    width: 100%;
+    max-width: 350px;
+  }
 }

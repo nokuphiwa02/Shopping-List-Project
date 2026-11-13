@@ -25,7 +25,9 @@ export const ShoppingForm = () => {
     if (!category.trim()) return alert("Please type a category name first!");
 
     if (editingListId) {
+      window.alert("List updated successfully!");
       dispatch(
+        
         updateList({
           id: editingListId,
           userId,
@@ -43,7 +45,7 @@ export const ShoppingForm = () => {
   };
 
   return (
-    <form onSubmit={handleSave} className={styles.shopingContainer}>
+    <form onSubmit={handleSave} className={styles.shopingContainer} id="categoryForm">
       
       <div className={styles.shopingContent}>
         <h2>Shopping List</h2>

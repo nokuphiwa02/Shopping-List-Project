@@ -1,63 +1,120 @@
-.categoryCard{
-width: 48%;
-height: 130px;
-border:  solid #808080;
-border-radius: 20px;
-display: flex;
-background-color: #212121;
-flex-direction:column;
-align-content: center;
-justify-content: center;
-}
 
-.categoryContent{
-width: 140px;
-height: 40px;
-display: flex;
-gap: 10px;
-flex-direction: column;
-
-
-}
-
-.viewBtn{
-width: 70px;
-height: 35px;
-border-radius: 7px;
-color: white;
-font-size: small;
-background-color: blue;
-
-}
-
-.deleteBtn{
-width: 70px;
-height: 35px;
-font-size: small;
-border-radius: 7px;
-color: white;
-background-color: rgb(180, 48, 76);
-}
-.UPdateBtn{
-width: 80px;
-height: 35px;
-font-size: small;
-border-radius: 7px;
-color: white;
-background-color: blue;
-
-}
-
-.btnContent{
+.categoryCard {
+  width: 220px;
+  min-height: 220px;
+  border: 1px solid #d5e3d9;
+  border-radius: 16px;
   display: flex;
-  gap: 5px;
-  flex-direction: row;
-  margin-left: 50px;
- 
+  background-color: #e5f0e7;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 15px;
+  box-sizing: border-box;
+  box-shadow: 0 5px 18px rgba(23, 63, 53, 0.07);
+  transition: all 0.3s ease;
 }
 
-.h2{
-    font-size: medium;
-    margin-left: 50px;
-   
+.categoryCard:hover {
+  transform: translateY(-4px);
+  border-color: #79b89a;
+  box-shadow: 0 10px 25px rgba(23, 63, 53, 0.12);
+}
+
+.categoryContent {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.viewBtn {
+  min-width: 75px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: #173f35;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.viewBtn:hover {
+  background-color: #79b89a;
+  color: #173f35;
+}
+
+.deleteBtn {
+  min-width: 75px;
+  height: 36px;
+  padding: 0 12px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  background-color: #b94b55;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.deleteBtn:hover {
+  background-color: #963742;
+  transform: translateY(-2px);
+}
+
+.UPdateBtn {
+  min-width: 80px;
+  height: 36px;
+  padding: 0 12px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid #79b89a;
+  color: #173f35;
+  background-color: #e5f0e7;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.UPdateBtn:hover {
+  background-color: #79b89a;
+  transform: translateY(-2px);
+}
+
+.btnContent {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #173f35;
+  margin: 0;
+}
+
+/* Tablet and mobile responsiveness */
+@media (max-width: 600px) {
+  .categoryCard {
+    width: 220px;
+    min-height: 220px;
+  }
+
+  .btnContent {
+    gap: 7px;
+  }
 }

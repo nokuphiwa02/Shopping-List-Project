@@ -2,11 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import type { RootState, AppDispatch } from '../../../store';
-import {
-  FetchProfileThunk,
-  UpdateProfileThunk,
-  clearProfile,
-} from '../../redux/features/ProfileSlices';
+import {FetchProfileThunk,UpdateProfileThunk,clearProfile,} from '../../redux/features/ProfileSlices';
 import styles from './Profile.module.css';
 import greyprofile from '../../assets/greyprofile.png';
 

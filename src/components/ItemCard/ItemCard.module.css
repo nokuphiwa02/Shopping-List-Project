@@ -1,69 +1,151 @@
+
 .itemCard {
-  height: 130px;
-  border: 5px solid #808080;
-  border-radius: 20px;
+  width: 220px;
+  min-height: 220px;
+  border: 1px solid #d5e3d9;
+  border-radius: 16px;
   display: flex;
-  background-color: #212121;
+  background-color: #e5f0e7;
   flex-direction: column;
-  gap: 20px;
-  align-content: center;
-  border: solid #808080;
+  gap: 10px;
+  align-items: center;
   justify-content: center;
+  padding: 18px 15px;
+  box-sizing: border-box;
+  box-shadow: 0 5px 18px rgba(23, 63, 53, 0.07);
+  transition: all 0.3s ease;
+}
+
+.itemCard:hover {
+  border-color: #79b89a;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(23, 63, 53, 0.12);
 }
 
 .itemContent {
+  width: 100%;
   display: flex;
-  font-size: small;
-  color: grey;
+  font-size: 14px;
+  color: #687b70;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 8px;
+  text-align: center;
 }
 
-.editBtn {
-  width: 10px;
-  height: 35px;
-  font-size: small;
-  border-radius: 7px;
-  color: white;
-  background-color: blue;
-}
-
-.deleteBtn {
-  width: 70px;
-  height: 35px;
-  font-size: small;
-  border-radius: 7px;
-  color: white;
-  background-color: rgb(180, 48, 76);
-}
-
-.btnContent {
-  display: flex;
-  gap: 5px;
-  flex-direction: row;
-  margin-left: 90px;
+.itemContent p {
+  margin: 0;
+  color: #687b70;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .h2 {
-  font-size: small;
+  font-size: 18px;
+  font-weight: 700;
+  color: #173f35;
+  margin: 0;
+  text-align: center;
 }
 
-.shareBtn{
-  width: 50px;
+.btnContent {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+.editBtn {
+  min-width: 65px;
   height: 35px;
-  font-size: small;
-  border-radius: 7px;
+  padding: 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid #79b89a;
   color: white;
+  background-color: #173f35;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.editBtn:hover {
+  background-color: #79b89a;
+  transform: translateY(-2px);
+  color: #173f35;
+}
+
+.deleteBtn {
+  min-width: 65px;
+  height: 35px;
+  padding: 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  background-color: #b94b55;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.deleteBtn:hover {
+  background-color: #963742;
+  transform: translateY(-2px);
+}
+
+.shareBtn {
+  min-width: 65px;
+  height: 35px;
+  padding: 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  background-color: #173f35;
   display: flex;
   align-items: center;
- 
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.shareicon{
-  width: 40px;
-  height: 25px;
-  font-size: small;
-  border-radius: 7px; 
+.shareBtn:hover {
+  background-color: #79b89a;
+  color: #173f35;
+  transform: translateY(-2px);
+}
 
+.shareicon {
+  width: 18px;
+  height: 18px;
+  font-size: 13px;
+  border-radius: 5px;
+}
+
+/* Tablet and mobile */
+@media (max-width: 600px) {
+  .itemCard {
+    width: 100%;
+    max-width: 220px;
+    min-height: 210px;
+  }
+
+  .btnContent {
+    gap: 6px;
+  }
+
+  .editBtn,
+  .deleteBtn,
+  .shareBtn {
+    flex: 1;
+    min-width: 0;
+  }
 }

@@ -22,8 +22,7 @@ export const CategoryCard = ({
   return (
     <div className={styles.categoryCard}>
       <div className={styles.categoryContent}>
-        <h2 className={styles.h2}>{category.category}</h2>
-
+        <h2 className={styles.h2}>Name: {category.category}</h2>
    <div className={styles.btnContent}>
         <button onClick={view} className={styles.viewBtn}>
           View

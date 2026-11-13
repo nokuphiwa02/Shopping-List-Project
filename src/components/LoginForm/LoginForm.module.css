@@ -1,78 +1,156 @@
+
 .loginContainer {
-  width: 100vw;
-  height: 100vh;
-  background-color: #212121;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7f1 0%, #e5f0e7 100%);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 25px 20px;
+  box-sizing: border-box;
 }
+
 .loginCard {
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  max-width: 450px;
+  min-height: 480px;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  border: solid grey;
-  border-radius: 20px;
+  justify-content: center;
+  gap: 22px;
+  padding: 45px 40px;
+  border: 1px solid rgba(121, 184, 154, 0.25);
+  border-radius: 22px;
   align-items: center;
+  box-shadow: 0 15px 45px rgba(23, 63, 53, 0.12);
+  box-sizing: border-box;
+  animation: loginFadeIn 0.7s ease;
 }
 
 .tittle {
-  color: white;
-  font-weight: bolder;
+  color: #173f35;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin: 0 0 10px;
 }
 
-.email {
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-  color: #808080;
-}
-
+.email,
 .password {
+  width: 100%;
+  max-width: 320px;
   display: flex;
   flex-direction: column;
-  text-align: start;
-  color: #808080;
+  gap: 9px;
+  text-align: left;
+  color: #173f35;
+  font-size: 15px;
+  font-weight: 600;
 }
 
-.emailInput {
- width: 250px;
-  height: 30px;
-  border-radius: 10px;
-}
-
+.emailInput,
 .passwordInput {
- width: 250px;
- height: 30px;
- border-radius: 10px;
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid #d5e3d9;
+  border-radius: 10px;
+  background-color: #f8faf7;
+  color: #173f35;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.emailInput:focus,
+.passwordInput:focus {
+  border-color: #79b89a;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(121, 184, 154, 0.18);
 }
 
 .loginBtn {
- width: 170px;
- height: 40px;
- border-radius: 8px;
- display: block;
- cursor: pointer;
- color: white;
- background-color: rgb(180, 48, 76);
+  width: 100%;
+  max-width: 320px;
+  height: 48px;
+  border-radius: 11px;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #173f35;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+}
+
+.loginBtn:hover:not(:disabled) {
+  background-color: #79b89a;
+  color: #173f35;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(23, 63, 53, 0.15);
+}
+
+.loginBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .registerBtn {
-  width: 170px;
-  height: 40px;
-  border-radius: 8px;
-  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: 46px;
+  border-radius: 11px;
+  border: 2px solid #79b89a;
   cursor: pointer;
-  color: white;
-  background-color: #808080;
+  color: #173f35;
+  background-color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
-.account {
-  color: white;
+
+.registerBtn:hover {
+  background-color: #e5f0e7;
+  transform: translateY(-2px);
 }
 
 .account {
+  color: #687b70;
   text-align: center;
-  margin-top: 10px;
+  margin: 0;
   font-size: 14px;
+}
+
+@keyframes loginFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .loginCard {
+    padding: 35px 22px;
+    min-height: 450px;
+  }
+
+  .tittle {
+    font-size: 28px;
+  }
+
+  .email,
+  .password,
+  .loginBtn,
+  .registerBtn {
+    max-width: 100%;
+  }
 }

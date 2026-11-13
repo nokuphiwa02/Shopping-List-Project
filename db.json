@@ -16,6 +16,24 @@
       "email": "sabelo@gmail.com",
       "password": "sabelo@12",
       "id": "eLvkZGaSfAw"
+    },
+    {
+      "name": "sceloh",
+      "surname": "Phoswa",
+      "email": "scelophoswa@gmail.com",
+      "password": "scelo@99",
+      "contact": "0783310787",
+      "confirmPassword": "scelo@99",
+      "id": "e1_Pqu0C4xA"
+    },
+    {
+      "name": "Happy",
+      "surname": "Mhlongo",
+      "email": "happy2@gmail.com",
+      "password": "12345",
+      "contact": "0723458785",
+      "confirmPassword": "12345",
+      "id": "AiLkbC_lJps"
     }
   ],
   "list": [
@@ -58,6 +76,36 @@
       "userId": "oSuQG3P_VIo",
       "category": "sddesdes",
       "id": "ov-_eWmPHw8"
+    },
+    {
+      "id": "Jgc7OfYZCTs",
+      "userId": "e1_Pqu0C4xA",
+      "category": "Mango"
+    },
+    {
+      "userId": "e1_Pqu0C4xA",
+      "category": "apple",
+      "id": "52hZenT1MHM"
+    },
+    {
+      "userId": "e1_Pqu0C4xA",
+      "category": "pear",
+      "id": "qDFHTuZgAjs"
+    },
+    {
+      "userId": "e1_Pqu0C4xA",
+      "category": "banana",
+      "id": "r8iiDT4YW2E"
+    },
+    {
+      "userId": "e1_Pqu0C4xA",
+      "category": "meat",
+      "id": "ZKP1dyscJU8"
+    },
+    {
+      "id": "n3CvM0g0FVk",
+      "userId": "AiLkbC_lJps",
+      "category": "aman"
     }
   ],
   "items": [
@@ -137,6 +185,69 @@
       "quantity": 6,
       "optionalNote": "checkers",
       "id": "KInesO1Kg9Q"
+    },
+    {
+      "userId": "e1_Pqu0C4xA",
+      "name": "mango",
+      "quantity": 3,
+      "optionalNote": "superSpar",
+      "id": "opqeuRAqwyQ"
+    },
+    {
+      "userId": "e1_Pqu0C4xA",
+      "name": "apple",
+      "quantity": 4,
+      "optionalNote": "superSpar",
+      "id": "JifEna8Sok0"
+    },
+    {
+      "id": "ES8okssMgNM",
+      "userId": "e1_Pqu0C4xA",
+      "name": "pear ",
+      "quantity": 6,
+      "optionalNote": "checkers"
+    },
+    {
+      "userId": "e1_Pqu0C4xA",
+      "name": "orange",
+      "quantity": 3,
+      "optionalNote": "fruit and veggi",
+      "id": "pW6lS-gGPvo"
+    },
+    {
+      "userId": "e1_Pqu0C4xA",
+      "name": "grapes",
+      "quantity": 5,
+      "optionalNote": "spar",
+      "id": "Af4qSp1qOAU"
+    },
+    {
+      "userId": "e1_Pqu0C4xA",
+      "name": "banana",
+      "quantity": 4,
+      "optionalNote": "shoprite",
+      "id": "vZcjee0gIbw"
+    },
+    {
+      "userId": "e1_Pqu0C4xA",
+      "name": "lemon",
+      "quantity": 3,
+      "optionalNote": "spar",
+      "id": "BW5_wCpv9wA"
+    },
+    {
+      "userId": "e1_Pqu0C4xA",
+      "name": "strawberry",
+      "quantity": 6,
+      "optionalNote": "spar",
+      "id": "M1AQkYT3GcA"
+    },
+    {
+      "userId": "AiLkbC_lJps",
+      "name": "apple",
+      "quantity": 4,
+      "optionalNote": "Spar",
+      "id": "vQ5kYlLfLcI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

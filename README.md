@@ -3,16 +3,27 @@
   alt="Shopping-List-Project" width="640" height="320" />
 
 ## 🛒 Smart Shopping List
-A fast and responsive web application built to help users manage their grocery and shopping lists. This front-end application uses React and Redux Toolkit for efficient, predictable state management.
+ is a modern and responsive web application designed to make everyday shopping easier and more organised. It allows users to create, manage, update, and remove shopping items while keeping track of everything they need to purchase. Built with React, TypeScript, and Redux Toolkit, the application provides efficient state management and a smooth user experience. Its clean interface and responsive design make it easy to use across different devices. The project demonstrates my skills in front-end development, reusable components, and modern React application development.
+
 
 ## 🚀 Quick Start
 To run this project on your computer you need to follow these simple 
+
 ## steps:
 1. Clone the repository 
-bashgit clone https://github.com
-2. Install dependenciesbashnpm install (npm install)
-3. Start the development serverbashnpm start and run it in your terminal (npm run dev)
-The app should automatically open in your browser at http://localhost:3000.
+git clone https://github.com
+2. Install dependencies 
+(npm install)
+3. Start the development server npm start and run it in your terminal (npm run dev)
+The app should automatically open in your browser at http://localhost:5173.
+
+## steps of running server
+1. Clone the repository 
+git clone https://github.com
+2. npm install json-server
+3. Start the development server npm start and run it in your terminal 
+(npx json-server --watch db.json )
+4. The app should automatically open in your browser at http://localhost:3000/.
 
 ## 🛠️ Features
 -Add Items: Quick input to add new items to your shopping list.
@@ -32,7 +43,6 @@ The app should automatically open in your browser at http://localhost:3000.
 
 ## 📂 Project Structure
 
-Here is a look at how the Redux files and components are organized:textsrc/
 ├── app/
 │   └── store.ts         
 ├── redux/
@@ -62,7 +72,7 @@ Here is a look at how the Redux files and components are organized:textsrc/
         └── types     
 ├── App.tsx               
 └── index.html             
-Use code with caution.
+
 
 ## 🧠 Redux State Architecture
 -This app uses Redux Toolkit to handle data flow cleanly without messy boilerplate code.

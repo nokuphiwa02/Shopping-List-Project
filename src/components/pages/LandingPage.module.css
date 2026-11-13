@@ -1,51 +1,106 @@
+
 .landingPageContainer {
-  height: 100vh;
-  background-color: grey;
-  color: white;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #f5f7f1 0%, #e5f0e7 100%);
+  color: #173f35;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 30px 20px;
+  box-sizing: border-box;
 }
 
 .landingPage {
   text-align: center;
-  max-width: 600px;
-  background-color: #333;
-  padding: 60px 40px;
-  border-radius: 15px;
+  width: 100%;
+  max-width: 650px;
+  background-color: #ffffff;
+  padding: 55px 45px;
+  border-radius: 24px;
+  box-shadow: 0 15px 45px rgba(23, 63, 53, 0.10);
+  border: 1px solid rgba(121, 184, 154, 0.2);
+  animation: fadeIn 0.8s ease-in-out;
 }
 
 .landingTitle {
   font-size: 38px;
-  margin-bottom: 20px;
-  color: #222;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #173f35;
+  letter-spacing: -1px;
 }
 
-p {
-  font-size: 20px;
-  margin-bottom: 30px;
-  color: #555;
+.landingPage p {
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  color: #687b70;
 }
 
-button {
-  padding: 12px 30px;
-  font-size: 18px;
-  background-color: #007bff;
-  color: white;
+.landingPage button {
+  padding: 15px 38px;
+  font-size: 17px;
+  font-weight: 600;
+  background-color: #173f35;
+  color: #ffffff;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(23, 63, 53, 0.18);
 }
 
-button:hover {
-  transform: translatey(-2px);
+.landingPage button:hover {
+  background-color: #79b89a;
+  color: #173f35;
+  transform: translateY(-3px);
+  box-shadow: 0 9px 20px rgba(23, 63, 53, 0.2);
 }
 
 .landingPage img {
-  width: 250px;
-  height: 200px;
+  width: 100%;
+  max-width: 320px;
+  height: 230px;
   object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 25px;
+  border-radius: 18px;
+  margin-bottom: 28px;
+  box-shadow: 0 8px 20px rgba(23, 63, 53, 0.12);
+}
+
+/* Entrance animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .landingPage {
+    padding: 40px 22px;
+  }
+
+  .landingTitle {
+    font-size: 29px;
+  }
+
+  .landingPage p {
+    font-size: 15px;
+  }
+
+  .landingPage img {
+    height: 190px;
+  }
+
+  .landingPage button {
+    width: 100%;
+    padding: 14px 20px;
+  }
 }
