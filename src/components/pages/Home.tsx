@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import styles from "./Home.module.css";
 import { Navbar } from "../Navbar/Navbar";
 import SearchBar from "../Searchbar/Searchbar";
-import { ShoppingForm } from "../ShoppingForm/ShoppingForm";
+import { ShoppingForm } from "../shoppingForm/shoppingForm";
 import { CategoryCard } from "../CategoryCard/CategoryCard";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../../store";

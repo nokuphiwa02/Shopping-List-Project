@@ -1,6 +1,5 @@
 import styles from "./ItemCard.module.css";
 import type { Items } from "../../redux/features/ShoppingItemSlices";
-import shareIcon from "../../assets/shareIcon.jpg"
 
 
 interface itemCardProps {
